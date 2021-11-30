@@ -13,25 +13,23 @@
 
 	<body>
 		<div class="loginbox">
-		<img src="images/avatar.png" class="avatar">
+		<img src="images/avatar.png" class="avatar" alt="Avatar">
 			<h1>Login Here</h1>
 			<form>
-				<p>
-					Username
-				</p>
-				<input type="text" name="" placeholder="Enter Username">
-				<p>
-					Password
-				</p>
-				<input type="password" name="" placeholder="Enter Password">
-				<input type="submit" name="" value="Login">
-				<a href="#">
-					Lost your password?
-				</a>
-				<br>
-				<a href="#">
-					Don't have an account?
-				</a>
+				<p>Username</p>
+                <label>
+                    <input type="text" name="userName" placeholder="Enter Username">
+                </label>
+
+                <p>Password</p>
+                <label>
+                    <input type="password" name="Password" placeholder="Enter Password">
+                </label>
+
+                <input type="submit" name="" value="Login">
+				<a href="#">Lost your password?</a>
+				<br/>
+				<a href="register.php"> Don't have an account?</a>
 			</form>
 		</div>
 	</body>
