@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Validate author
-    if(empty(trim($_POST["title"]))){
+    if(empty(trim($_POST["author"]))){
         $author_err = "Please confirm the book's author.";
     } else {
         $author = trim($_POST["author"]);
