@@ -17,18 +17,17 @@
 			<h1>Login Here</h1>
 			<form>
 				<p>Username</p>
-                <label>
-                    <input type="text" name="userName" placeholder="Enter Username">
-                </label>
+                    <label>
+                        <input type="text" name="userName" placeholder="Enter Username">
+                    </label>
 
                 <p>Password</p>
-                <label>
-                    <input type="password" name="Password" placeholder="Enter Password">
-                </label>
+                    <label>
+                        <input type="password" name="Password" placeholder="Enter Password">
+                    </label>
 
                 <input type="submit" name="" value="Login">
-				<a href="#">Lost your password?</a>
-				<br/>
+				<a href="#">Lost your password?</a><br/>
 				<a href="register.php"> Don't have an account?</a>
 			</form>
 		</div>

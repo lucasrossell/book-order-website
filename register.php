@@ -1,5 +1,5 @@
 <?php
-// This section is currently broken
+ //This section is currently broken
 // I am working on making this correctly interact with the mysql server.
 
 // Include config file
@@ -128,7 +128,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="signUpBox">
             <img src="images/avatar.png" class ="avatar" alt="Avatar">
             <h1>Sign Up Here</h1>
-            <h2>Please fill this form to create an account.</h2>
+            <h2>Please fill this form to create an account.</h2><br/>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
                 <p>Username</p>
