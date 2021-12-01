@@ -12,9 +12,10 @@ function secure_email($field) {
 }
 
 // change email to to....??????
-$email_to = 'name @ company.com';
+$email_to = 'Professor at UCF';
 $subject = 'Book Request Update';
-$message = 'Make sure to submit your book requests by 12/12/21.';
+// might need to update url to book website
+$message = 'Make sure to submit your book requests by 12/12/21. Need to login? Login here: loginPage.php!';
 $headers = 'From noreply UCF bookstore.';
 // here we check if the email address is invalid using secure check
 $secure_check = secure_email($to_email);
