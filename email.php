@@ -6,8 +6,7 @@ function secure_email($field) {
     // filter validate validates the email and returns true if valid
     if (field_var($field, FILTER_VALIDATE_EMAIL)) {
         return true;
-    }
-    else {
+    } else {
         return false;
     }
 }
@@ -21,8 +20,7 @@ $headers = 'From noreply UCF bookstore.';
 $secure_check = secure_email($to_email);
 if ($secure_email == false) {
     echo "Invalid Input";
-} 
-else {
+} else {
     mail($to_email, $subject, $message, $headers);
     echo "This email has been sent.";
 }
