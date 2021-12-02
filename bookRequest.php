@@ -1,5 +1,6 @@
+<!--TODO: Add backend functionality for quantity of books to order and class that the books are being ordered for-->
 <?php
- //This section is currently broken
+//This section is currently broken
 // Working on making this correctly interact with the mysql server.
 
 // Include config file
@@ -79,55 +80,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-    <html lang="en">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Book Request Form</title>
     </head>
     <link rel="stylesheet" type="text/css" href="style.css">
-
-    <body>
-        <div class="bookReqForm">
-            <!--<img src="images/avatar.png" class ="avatar" alt="Avatar"> -->
-            <h1>Book Request Form</h1>
-            <h2>Enter the book's information that you would like to request.</h2><br/>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
-                <p>Title</p>
-                    <label>
-                        <input type="text" name="title" class="form-control <?php echo (!empty($title_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $title; ?>" placeholder="Enter the Book's Title">
+    <body id="order-body">
+        <div class="order-header">
+            <h1></h1>
+        </div>
+        <div class="order-form">
+            <img src="images/avatar.png" class="avatar" alt="Avatar Image">
+            <h1>Book Order Form</h1>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" autocomplete="off">
+            <div class="order-info">
+                    <p>Book Title</p>
+                        <input id="book-title" type="text" name="title" class="form-control <?php echo (!empty($title_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $title; ?>" placeholder="Enter the Book Title" required>
                         <span class="invalid-feedback"><?php echo $title_err; ?></span>
-                    </label>
 
-                <p>Author</p>
-                    <label>
-                        <input type="text" name="author" class="form-control <?php echo (!empty($author_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $author; ?>" placeholder="Enter Author's Name">
+                    <p>Author Name(s)</p>
+                        <input id="book-auth" type="text" name="author"  class="form-control <?php echo (!empty($author_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $author; ?>" placeholder="Enter the Author Name(s)" required>
                         <span class="invalid-feedback"><?php echo $author_err; ?></span>
-                    </label>
 
-                <p>Edition</p>
-                    <label>
-                        <input type="text" name="edition" class="form-control <?php echo (!empty($edition_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $edition; ?>" placeholder="Enter tbe Book's Edition">
+                    <p>Book Edition</p>
+                        <input id="book-ed" type="text" name="edition" class="form-control <?php echo (!empty($edition_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $edition; ?>" placeholder="Enter the Book Edition Number" required>
                         <span class="invalid-feedback"><?php echo $edition_err; ?></span>
-                    </label>
 
-                <p>Publisher </p>
-                    <label>
-                        <input type="text" name="publisher" class="form-control <?php echo (!empty($publisher_err)) ? 'is-invalid': ''; ?>" value="<?php echo $publisher; ?>" placeholder="Enter the Publisher">
+                    <p>Book Publisher</p>
+                        <input id="book-pub" type="text" name="publisher" class="form-control <?php echo (!empty($publisher_err)) ? 'is-invalid': ''; ?>" value="<?php echo $publisher; ?>" placeholder="Enter the Book Publisher Name" required>
                         <span class="invalid-feedback"><?php echo $publisher_err; ?></span>
-                    </label>
 
-                <p>ISBN</p>
-                    <label>
-                        <input type="text" name="ISBN" class="form-control <?php echo(!empty($ISBN_err)) ? 'is-invalid': ''; ?>" value="<?php echo $ISBN; ?>" placeholder="Enter the ISBN">
+                    <p>ISBN</p>
+                        <input id="book-isbn" type="text" name="ISBN" class="form-control <?php echo(!empty($ISBN_err)) ? 'is-invalid': ''; ?>" value="<?php echo $ISBN; ?>"  placeholder="Enter the 13 Digit ISBN" required minlength="13" maxlength="15">
                         <span class="invalid-feedback"><?php echo $ISBN_err; ?></span>
-                    </label>
 
-                <input type="submit" name="" value="Submit"><br/>
+                    <p>Total Number of Books To Be Ordered</p>
+                        <input id="book-qty" type="number" name="book_qty" placeholder="Enter the Amount of Books to Deliver" required min="1" >
+
+                    <p>Class For Which Books Will Be Ordered For</p>
+                        <input id="class-book" type="text" name="class" placeholder="Enter the Course Code" required>
+
+                </div>
+                <input id="order-submit" class="order-info" type="submit" name="" value="Submit"><br/>
             </form>
         </div>
     </body>
 </html>
-
