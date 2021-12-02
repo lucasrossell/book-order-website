@@ -1,35 +1,26 @@
  <!DOCTYPE html>
 <html lang="en">
-	<meta charset="UTF-8">	
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<head>
-		<title>
-			Book Order Wesbite
-		</title>
-	</head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<style>
-	</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<head>
+    <title>Book Order Website</title>
+</head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<body id="login-body">
+<div class="login-box">
+    <img src="images/avatar.png" class="avatar" alt="Avatar">
+    <h1>Login Here</h1>
+    <form>
+        <p>Username</p>
+            <input type="text" name="userName" placeholder="Enter Username">
 
-	<body>
-		<div class="loginbox">
-		<img src="images/avatar.png" class="avatar" alt="Avatar">
-			<h1>Login Here</h1>
-			<form>
-				<p>Username</p>
-                    <label>
-                        <input type="text" name="userName" placeholder="Enter Username">
-                    </label>
+        <p>Password</p>
+            <input type="password" name="Password" placeholder="Enter Password">
 
-                <p>Password</p>
-                    <label>
-                        <input type="password" name="Password" placeholder="Enter Password">
-                    </label>
-
-                <input type="submit" name="" value="Login">
-				<a href="#">Lost your password?</a><br/>
-				<a href="register.php"> Don't have an account?</a>
-			</form>
-		</div>
-	</body>
+        <input type="submit" name="" value="Login">
+		<a href="#">Lost/Forgot your password?</a><br/>
+		<a href="register.php"> Don't have an account?</a>
+    </form>
+</div>
+</body>
 </html> 

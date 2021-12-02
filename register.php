@@ -115,54 +115,37 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 ?>
 
 <!DOCTYPE html>
-    <html lang="en">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<head>
+    <title>Sign Up</title>
+</head>
+<link rel="stylesheet" type="text/css" href="style.css">
 
-    <head>
-        <title>Sign Up</title>
-    </head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-    <body>
-        <div class="signUpBox">
-            <img src="images/avatar.png" class ="avatar" alt="Avatar">
-            <h1>Sign Up Here</h1>
-            <h2>Please fill this form to create an account.</h2><br/>
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-
-                <p>Username</p>
-                    <label>
-                        <input type="text" name="userName" class="form-control <?php echo (!empty($userName_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Create Your Username">
-                        <span class="invalid-feedback"><?php echo $userName_err; ?></span>
-                    </label>
-
-                <p>Password</p>
-                    <label>
-                        <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>" placeholder="Enter Password">
-                        <span class="invalid-feedback"><?php echo $password_err; ?></span>
-                    </label>
-
-                <p>Confirm Password</p>
-                    <label>
-                        <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>" placeholder="Re-Enter Password">
-                        <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
-                    </label>
-
-                <p>Full Name </p>
-                    <label>
-                        <input type="text" name="fullName" class="form-control <?php echo (!empty($fullName_err)) ? 'is-invalid': ''; ?>" value="<?php echo $fullName; ?>" placeholder="Enter Your Full Name">
-                        <span class="invalid-feedback"><?php echo $fullName_err; ?></span>
-                    </label>
-
-                <p>Email</p>
-                    <label>
-                        <input type="text" name="userEmail" class="form-control <?php echo(!empty($userEmail_err)) ? 'is-invalid': ''; ?>" value="<?php echo $userEmail; ?>" placeholder="Enter Your Email">
-                        <span class="invalid-feedback"><?php echo $userEmail_err; ?></span>
-                    </label>
-
-                <input type="submit" name="" value="Submit"><br/>
-                <a href="loginPage.php">Already have an account? Login here.</a>
+<body id="register-body">
+<div class="signUpBox">
+    <img src="images/avatar.png" class ="avatar" alt="Avatar">
+    <h1>Sign Up Here</h1>
+    <h2>Please fill this form to create an account.</h2><br/>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <p>Username</p>
+            <input type="text" name="userName" class="form-control <?php echo (!empty($userName_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Create Your Username">
+            <span class="invalid-feedback"><?php echo $userName_err; ?></span>
+        <p>Password</p>
+            <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>" placeholder="Enter Password">
+            <span class="invalid-feedback"><?php echo $password_err; ?></span>
+        <p>Confirm Password</p>
+            <input type="password" name="confirm_password" class="form-control <?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>" placeholder="Re-Enter Password">
+            <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+        <p>Full Name </p>
+            <input type="text" name="fullName" class="form-control <?php echo (!empty($fullName_err)) ? 'is-invalid': ''; ?>" value="<?php echo $fullName; ?>" placeholder="Enter Your Full Name">
+            <span class="invalid-feedback"><?php echo $fullName_err; ?></span>
+        <p>Email</p>
+            <input type="text" name="userEmail" class="form-control <?php echo(!empty($userEmail_err)) ? 'is-invalid': ''; ?>" value="<?php echo $userEmail; ?>" placeholder="Enter Your Email">
+            <span class="invalid-feedback"><?php echo $userEmail_err; ?></span>
+        <input type="submit" name="" value="Submit"><br/>
+        <a href="loginPage.php">Already have an account? Login here.</a>
             </form>
         </div>
     </body>
