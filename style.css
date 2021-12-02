@@ -1,5 +1,5 @@
- /*General Page CSS*/
- .avatar{
+ /* General Page CSS*/
+.avatar{
 	width:100px;
 	height:100px;
 	border-radius:50%;
@@ -9,14 +9,15 @@
 }
 
 /* Log-in Page CSS */
- #login-body{
+#login-body{
 	 margin:0;
 	 padding:0;
 	 background:url(images/backgroundpic.jpg);
 	 background-size:cover;
 	 background-position:center;
 	 font-family:sans-serif;
- }
+}
+
 .login-box{
 	width:320px;
 	height:320px;
@@ -97,6 +98,7 @@
 	 background-position:center;
 	 font-family:sans-serif;
 }
+
 .signUpBox{
 	width:320px;
 	height:500px;
@@ -117,6 +119,7 @@
 	width:100%;
 	margin-bottom:10px;
 }
+
 .signUpBox h1{
 	margin:0;
 	padding: 0 0 20px;
@@ -130,6 +133,7 @@
 	font-weight:bold;
 	font-size:16px;
 }
+
 .signUpBox input[type="submit"]{
 	border:none;
 	outline:none;
@@ -145,6 +149,7 @@
 	background:#ffc107;
 	color:#000;
 }
+
 .signUpBox input[type="text"], input[type="password"]{
 	border:none;
 	border-bottom:1px solid #fff;
@@ -164,6 +169,7 @@
 .signUpBox a:hover{
 	color:#ffc107;
 }
+
 .signUpBox h2{
 	width:100%;
 	margin:0;
@@ -171,8 +177,9 @@
 	font-weight:bold;
 	font-size:14px;
 }
+
 /* Book Order Page */
- #order-body{
+#order-body{
 	 margin:0;
 	 padding:0;
 	 width:auto;
@@ -181,20 +188,19 @@
 	 background-size:cover;
 	 background-position:center;
 	 font-family:sans-serif;
- }
- .order-header {
+}
+
+.order-header { /* Not Currently In Use */
 	 margin:0;
 	 padding:150px;
 	 width:100%;
 	 height:100%;
-	 /*background:url(images/orderPageBanner.jpg);*/
-	 /*background-repeat:no-repeat;*/
 	 background-position:center;
 	 background-size:contain;
 	 font-family:sans-serif;
  }
 
- .order-header h1 {
+.order-header h1 {
 	 margin:0;
 	 padding: 0 0 0;
 	 text-align:center;
@@ -202,11 +208,12 @@
 	 left:50%;
 	 color:white;
 	 font-size:40px;
- }
- .order-form{
+}
+
+.order-form{
 	 width:450px;
-	 height:750px;
-	 background:rgba(0,0,0,0.9);
+	 height:595px;
+	 background:rgba(0,0,0,0.8);
 	 color:#fff;
 	 top:50%;
 	 left:50%;
@@ -217,14 +224,15 @@
 	 box-sizing:border-box;
 	 padding:70px 30px;
 	 border-radius:5%;
- }
+}
 
- .order-form h1{
+.order-form h1{
 	 margin:0;
 	 padding: 0 0 20px;
 	 text-align: center;
 	 font-size:22px;
- }
+}
+
 .order-info p{
 	display: flex;
 	flex-direction: column;
@@ -236,7 +244,7 @@
 
 .order-info input{
 	width:100%;
-	margin-bottom:10px;
+	margin-bottom:20px;
 }
 
 .order-info input::-webkit-outer-spin-button,
@@ -248,7 +256,6 @@ input::-webkit-inner-spin-button{
 .order-info input:invalid{
 	color:#fff;
 }
-
 
 .order-info input[type="text"],[type="number"],[type="tel"],[type="email"]{
 	border:none;
@@ -265,7 +272,7 @@ input::-webkit-inner-spin-button{
 	width:100%;
 	border:none;
 	outline:none;
-	height:40px;
+	height:55px;
 	background:#fb2525;
 	color: #fff;
 	font-size:18px;
