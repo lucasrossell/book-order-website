@@ -186,6 +186,7 @@
 	 height:auto;
 	 background:url(images/orderPageBanner.jpg);
 	 background-size:cover;
+	/*background-repeat:no-repeat;*/
 	 background-position:center;
 	 font-family:sans-serif;
 }
@@ -212,7 +213,7 @@
 
 .order-form{
 	 width:450px;
-	 height:595px;
+	 height:620px;
 	 background:rgba(0,0,0,0.8);
 	 color:#fff;
 	 top:50%;
