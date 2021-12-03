@@ -1,3 +1,4 @@
+<!--TODO - Add User type selection when creating accounts, i.e. superuser/admin, faculty, professor-->
 <?php
  //This section is currently broken
 // I am working on making this correctly interact with the mysql server.
