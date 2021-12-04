@@ -1,4 +1,5 @@
 <!--TODO - Add User type selection when creating accounts, i.e. superuser/admin, faculty, professor-->
+<!--TODO - in PHP: have submit button redirect page after registering to the dashboard page -->
 <?php
  //This section is currently broken
 // I am working on making this correctly interact with the mysql server.
@@ -145,7 +146,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Email</p>
             <input type="text" name="userEmail" class="form-control <?php echo(!empty($userEmail_err)) ? 'is-invalid': ''; ?>" value="<?php echo $userEmail; ?>" placeholder="Enter Your Email">
             <span class="invalid-feedback"><?php echo $userEmail_err; ?></span>
-        <input type="submit" name="" value="Submit"><br/>
+        <input type="submit" name="" value="Submit" id="sub-click"><br/>
         <a href="loginPage.php">Already have an account? Login here.</a>
             </form>
         </div>
