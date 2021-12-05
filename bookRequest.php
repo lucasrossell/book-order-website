@@ -1,5 +1,6 @@
 <!--TODO: Add backend functionality for quantity of books to order and class that the books are being ordered for-->
 <!--TODO: Add backend for redirect to dashboard after submitting order-->
+<!--TODO: Add a unique order id number -->
 <?php
 //This section is currently broken
 // Working on making this correctly interact with the mysql server.
@@ -8,7 +9,7 @@
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$title = $author = $edition = $publisher = $ISBN = "";
+$title = $author = $edition = $publisher = $ISBN = $id = "";
 $title_err = $author_err = $edition_err = $publisher_err = $ISBN_err = "";
 
 // Processing form data when form is submitted
@@ -75,6 +76,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_close($stmt);
         }
     }
+
+    // unique order id
+    $id = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
     // Close connection
     mysqli_close($link);
 }

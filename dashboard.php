@@ -1,5 +1,6 @@
 <?php
 //    PHP stuff goes here
+require_once "config.php";
 //?>
 
 
@@ -16,7 +17,7 @@
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a class="active-nav" href="dashboard.php">Home</a>
             <a href="bookRequest.php">New Book Order </a> <!-- redirects to create a new request -->
-            <a href="usersList.php">View All Users</a> <!-- When clicked shows the form on Dashboard Page in aside below-->
+            <a href="usersList.php">View All Users</a> <!-- When clicked shows the form on Dashboard Page in aside below// DO WE NEED THIS HERE?-->
             <a href="#">Change Password</a><!-- TODO: Create Change Password Screen-->
             <a href="#">Log-Out</a><!-- TODO: Create Log-Out Screen-->
         </div>

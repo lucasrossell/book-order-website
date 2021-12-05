@@ -1,3 +1,8 @@
+ <?php 
+// insert php here
+require_once "config.php";
+ ?>
+ 
  <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -18,8 +23,8 @@
             <input type="password" name="Password" placeholder="Enter Password">
 
         <input type="submit" name="" value="Login">
-		<a href="#">Lost/Forgot your password?</a><br/>
-		<a href="register.php"> Don't have an account?</a>
+		<a href="restPass.php">Lost/Forgot your password?</a><br/>
+		<a href="register.php"> Don't have an account? Create one here.</a>
     </form>
 </div>
 </body>
