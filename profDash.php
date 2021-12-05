@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <title>Dashboard View</title>
+        <title>Professor's Dashboard View</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -14,17 +14,16 @@
     <body id="dash">
         <div id="sidebar-nav" class="sidebar-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a class="active-nav" href="dashboard.php">Home</a>
+            <a class="active-nav" href="profDash.php">Home</a> <!-- Home button-->
             <a href="bookRequest.php">New Book Order </a> <!-- redirects to create a new request -->
-            <a href="usersList.php">View All Users</a> <!-- When clicked shows the form on Dashboard Page in aside below-->
+            <a href="openOrder.php">View Open Order</a> <!-- When clicked shows the form on Dashboard Page below?-->
             <a href="#">Change Password</a><!-- TODO: Create Change Password Screen-->
             <a href="#">Log-Out</a><!-- TODO: Create Log-Out Screen-->
         </div>
 
     <div id="main" class="dash-content">
-        <span id="menu-icon" style="font-size:30px;cursor:pointer position:absolute;" onclick="openNav()">&#9776; Dashboard</span>
-<!--        <h2>Dashboard content??</h2>-->
-<!--        TODO: Add PHP to display Open Orders here -->
+        <span id="menu-icon" style="font-size:30px;cursor:pointer position:absolute;" onclick="openNav()">&#9776;  Prof's Dashboard</span>
+       <h2>Dashboard content??</h2>
 
     </div>
         <script>
