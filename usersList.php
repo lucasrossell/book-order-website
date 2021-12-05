@@ -1,6 +1,10 @@
 <?php
-//include"config.php";
-//?>
+include"config.php";
+
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +17,7 @@
     <body id="view-order">
         <div id="sidebar-nav" class="sidebar-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="dashboard.php">Home</a>
+            <a href="profDash.php">Home</a>
             <a href="bookRequest.php">New Book Order </a> <!-- redirects to create a new request -->
             <a class="active-nav" href="#">View Open Order</a> <!-- When clicked shows the form on Dashboard Page in aside below-->
             <a href="#">Change Password</a><!-- TODO: Create Change Password Screen-->
@@ -27,24 +31,30 @@
 
             <div class="user-list-table">
                 <table>
-                    <tr>
-                        <td>Account Type</td>
+                    <thead>
+                        <td>User Name</td>
                         <td>Name</td>
                         <td>Email</td>
-                    </tr>
-<!--                    --><?php
-//                        $records = mysqli_query(DB_SERVER, "SELECT * FROM users");
-//                        while( $data = mysqli_fetch_array($records))
-//                        {
-//                    ?>
-<!--                        <tr>-->
-<!--                            <td>--><?php //echo $data['username']; ?><!--</td>-->
-<!--                            <td>--><?php //echo $data['fullName']; ?><!--</td>-->
-<!--                            <td>--><?php //echo $data['userEmail']; ?><!--</td>-->
-<!--                        </tr>-->
-<!--                        --><?php
-//                    }
-//                    ?>
+                        <td>Edit User</td>
+                        <td>Delete User</td>
+                    </thead>
+                    <?php  // PHP To populate the list of Users not sure if this php would work
+
+                        $sql= "SELECT username, fullName, userEmail FROM users";
+                        $data = mysqli_query($link, $sql);
+                        while( $row = mysqli_fetch_array($data) )
+                        {
+                    ?>
+                        <tr>
+                            <td><?php echo $row['username']; ?></td>
+                            <td><?php echo $row['fullName']; ?></td>
+                            <td><?php echo $row['userEmail']; ?></td>
+<!--                            <td><a href="edit.php?id=--><?php //echo $data['id']; ?><!--">Edit</a></td> TODO: make edit function to handle editing the table-->
+<!--                            <td><a href="delete.php?id=--><?php //echo $data['id']; ?><!--">Delete</a></td> TODO: make delete function for handling deleting from the table-->
+                        </tr>
+                        <?php
+                    }
+                    ?>
                 </table>
             </div>
 
