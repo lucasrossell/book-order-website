@@ -1,19 +1,21 @@
 <!--TODO - Add User type selection when creating accounts, i.e. superuser/admin, faculty, professor-->
 <!--TODO - in PHP: have submit button redirect page after registering to the dashboard page -->
 <?php
+require_once 'config.php';
  //This section is currently broken
 // I am working on making this correctly interact with the mysql server.
-
-// Include config file
-require_once "config.php";
-
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = $userEmail = $fullName = "";
 $username_err = $password_err = $confirm_password_err = $email_err = $fullName_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+    // Include config file
+    require_once 'config.php';
 
+    // Define variables and initialize with empty values
+    $username = $password = $confirm_password = $userEmail = $fullName = "";
+    $username_err = $password_err = $confirm_password_err = $email_err = $fullName_err = "";
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
@@ -79,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["userEmail"]))){
         $email_err = "Please confirm email.";
     } else{
-        $email = trim($_POST["userEmail"]);
+        $userEmail = trim($_POST["userEmail"]);
     }
 
     // Check input errors before inserting in database
@@ -90,7 +92,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password, $param_fullName, $param_email);
+            mysqli_stmt_bind_param($stmt, 'ssss', $param_username, $param_password, $param_fullName, $param_email);
 
             // Set parameters
             $param_username = $username;
@@ -130,10 +132,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <img src="images/avatar.png" class ="avatar" alt="Avatar">
     <h1>Sign Up Here</h1>
     <h2>Please fill this form to create an account.</h2><br/>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" >
         <p>Username</p>
-            <input type="text" name="userName" class="form-control <?php echo (!empty($userName_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Create Your Username">
-            <span class="invalid-feedback"><?php echo $userName_err; ?></span>
+            <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>" placeholder="Create Your Username">
+            <span class="invalid-feedback"><?php echo $username_err; ?></span>
         <p>Password</p>
             <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>" placeholder="Enter Password">
             <span class="invalid-feedback"><?php echo $password_err; ?></span>
@@ -144,8 +146,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             <input type="text" name="fullName" class="form-control <?php echo (!empty($fullName_err)) ? 'is-invalid': ''; ?>" value="<?php echo $fullName; ?>" placeholder="Enter Your Full Name">
             <span class="invalid-feedback"><?php echo $fullName_err; ?></span>
         <p>Email</p>
-            <input type="text" name="userEmail" class="form-control <?php echo(!empty($userEmail_err)) ? 'is-invalid': ''; ?>" value="<?php echo $userEmail; ?>" placeholder="Enter Your Email">
-            <span class="invalid-feedback"><?php echo $userEmail_err; ?></span>
+            <input type="text" name="userEmail" class="form-control <?php echo(!empty($email_err)) ? 'is-invalid': ''; ?>" value="<?php echo $userEmail; ?>" placeholder="Enter Your Email">
+            <span class="invalid-feedback"><?php echo $email_err; ?></span>
         <input type="submit" name="" value="Submit" id="sub-click"><br/>
         <a href="loginPage.php">Already have an account? Login here.</a>
             </form>
