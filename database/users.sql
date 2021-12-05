@@ -5,3 +5,4 @@ CREATE TABLE IF NOT EXISTS `users` (
   `userEmail` varchar(50) NOT NULL,
   PRIMARY KEY (`username`)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
