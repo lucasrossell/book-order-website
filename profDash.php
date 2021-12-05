@@ -1,5 +1,6 @@
 <?php
 //    PHP stuff goes here
+require_once "config.php";
 //?>
 
 
@@ -24,6 +25,7 @@
     <div id="main" class="dash-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer position:absolute;" onclick="openNav()">&#9776;  Prof's Dashboard</span>
        <h2>Dashboard content??</h2>
+<!--        Add PHP to display open orders here-->
 
     </div>
         <script>

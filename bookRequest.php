@@ -1,5 +1,6 @@
 <!--TODO: Add backend functionality for quantity of books to order and class that the books are being ordered for-->
 <!--TODO: Add backend for redirect to dashboard after submitting order-->
+<!--TODO: Add a unique order id number -->
 <?php
 //This section is currently broken
 // Working on making this correctly interact with the mysql server.
@@ -89,8 +90,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-
-
+    // unique order id
+    //id = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
     // Close connection
     mysqli_close($link);
 }

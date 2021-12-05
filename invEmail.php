@@ -1,4 +1,5 @@
 <?php
+require_once "config.php";
 // going to have to edit and change this to fit our project
 function secure_email($field) {
     // sanitize email removes illegal characters
