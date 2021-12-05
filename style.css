@@ -7,6 +7,17 @@
 	top:-50px;
 	left:calc(50% - 50px);
 }
+thead{
+	padding: 15px;
+	text-align:left;
+	background-color:#fb2525;
+}
+td{
+	padding: 15px;
+	text-align:left;
+}
+
+ tr:nth-child(even) {background-color: #f2f2f2;}
 
 /* Log-in Page CSS */
 #login-body{
@@ -20,7 +31,7 @@
 
 .login-box{
 	width:320px;
-	height:320px;
+	height:360px;
 	background:rgba(0,0,0,0.9);
 	color:#fff;
 	top:50%;
@@ -101,7 +112,7 @@
 
 .signUpBox{
 	width:320px;
-	height:500px;
+	height:600px;
 	background:rgba(0,0,0,0.9);
 	color:#fff;
 	top:50%;
