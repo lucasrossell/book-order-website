@@ -1,10 +1,6 @@
-<!-- This is the where the superadmin or fault can choose to create a new book order or they can choose to edit a book order or delete a book order -->
+<!-- This is the where the superadmin or faculty can choose to create a new book order or they can choose to delete users -->
 <?php
 include"config.php";
-
-if($link === false){
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +25,6 @@ if($link === false){
         <div id="main" class="view-order-content">
             <span id="menu-icon" style="font-size:30px;cursor:pointer position:absolute;" onclick="openNav()">&#9776; Menu</span>
             <!--        <h2>Dashboard content??</h2>-->
-            <!--        TODO: Add PHP to display all Users here -->
 
             <div class="user-list-table">
                 <table>
@@ -51,8 +46,8 @@ if($link === false){
                             <td><?php echo $row['username']; ?></td>
                             <td><?php echo $row['fullName']; ?></td>
                             <td><?php echo $row['userEmail']; ?></td>
-                            <td><a href="editUsers.php?id=<?php echo $data['id']; ?>">Edit</a></td>
-<!--                            <td><a href="delete.php?id=--><?php //echo $data['id']; ?><!--">Delete</a></td> TODO: make delete function for handling deleting from the table-->
+                            <td><a href="editUsers.php?id=<?php echo $data['username']; ?>">Edit</a></td>
+                            <td><a href="deleteUsers.php?id=<?php echo $data['username']; ?>">Delete</a></td>
                         </tr>
                         <?php
                     }

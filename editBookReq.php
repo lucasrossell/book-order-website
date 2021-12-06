@@ -19,7 +19,7 @@ if(isset($_POST['update'])) {
 
     if($edit) {
         mysqli_close($db);
-//        header("location: ___.php"); 
+        header("location: openOrder.php"); 
         exit;
     } else {
         echo mysqli_error();

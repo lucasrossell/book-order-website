@@ -32,7 +32,7 @@
                 <th>ISBN</th>
                 <th>Quantity Ordered</th>
             </tr>
-        <?php  // PHP To populate the list of Users not sure if this php would work
+        <?php  // PHP To populate the list of books not sure if this php would work
             $sql= "SELECT title, author, edition, publisher, ISBN, book_qty FROM books";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {
@@ -45,7 +45,7 @@
                     <td><?php echo $row['ISBN']; ?></td>
                     <td><?php echo $row['book_qty']; ?></td>
                     <td><a href="editBookReq.php?id=<?php echo $data['order_id']; ?>">Edit</a></td>
-<!--                <td><a href="delete.php?id=--><?php //echo $data['order_id']; ?><!--">Delete</a></td> TODO: make delete function for handling deleting from the table-->
+                    <td><a href="deleteBookReq.php?id=<?php echo $data['order_id']; ?>">Delete</a></td>
                 </tr>
             <?php
             }
