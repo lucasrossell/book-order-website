@@ -1,5 +1,4 @@
  <?php 
-// insert php here
 session_start();
 
 // once logged in if a professor, redirect to profDash.php

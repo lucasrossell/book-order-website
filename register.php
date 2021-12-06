@@ -3,8 +3,9 @@
 <!-- TODO - Create a way to add the option of whether the user is staff or prof -->
 <?php
 require_once 'config.php';
- //This section is currently broken
-// I am working on making this correctly interact with the mysql server.
+ //This section is currently broken; working on making this correctly interact with the mysql server.
+
+ 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = $userEmail = $fullName = "";
 $username_err = $password_err = $confirm_password_err = $email_err = $fullName_err = "";
