@@ -51,7 +51,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             if($type = "professor") {
                                 header("location: profDash.php");
                             } else {
-                                header("location: adminDash.php")
+                                header("location: adminDash.php");
                             }
                         } else {
                             // Password is not valid
