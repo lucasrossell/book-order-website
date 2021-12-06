@@ -20,7 +20,7 @@
         <a href="register.php">Create a new account </a>
         <a href="invEmail.php">Send invitation email </a>
         <a class="active-nav" href="adminOrders.php">View list of book requests</a>
-        <a href="bookRequest.php">Create Book Request</a>
+        <a href="adminReq.php">Create Final Book Request</a>
         <a href="resetPass.php">Change Password</a>
         <a href="logoutPage.php">Log-Out</a>
     </div>

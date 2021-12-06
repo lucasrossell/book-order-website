@@ -124,6 +124,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="resetPass.php">Change Password</a>
             <a href="logoutPage.php">Log-Out</a>
         </div>
+
+        <div id="sidebar-nav" class="sidebar-nav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="profDash.php">Home</a> <!-- Home button-->
+            <a class="active-nav" href="bookRequest.php">New Book Order </a>
+            <a href="openOrder.php">View/Edit Open Order</a>
+            <a href="resetPass.php">Change Password</a>
+            <a href="logoutPage.php">Log-Out</a>
+        </div>
         
         <div class="order-header">
             <h1></h1>

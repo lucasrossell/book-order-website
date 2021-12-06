@@ -17,6 +17,7 @@ if(isset($_POST['submit'])) {
         } else {
             echo "Invalid username";
         }
+    header("location:loginPage.php")
 }
 ?>
 
