@@ -1,3 +1,4 @@
+<!-- This is the where the superadmin or fault can choose to create a new book order or they can choose to edit a book order or delete a book order -->
 <?php
 include"config.php";
 
@@ -15,10 +16,11 @@ if($link === false){
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body id="view-order">
+        <!-- TODO: edit this navbar for faculty/admin -->
         <div id="sidebar-nav" class="sidebar-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="profDash.php">Home</a>
-            <a href="bookRequest.php">New Book Order </a> <!-- redirects to create a new request -->
+            <a href="#">New Book Order </a> <!-- redirects to create a new request -->
             <a class="active-nav" href="#">View Open Order</a> <!-- When clicked shows the form on Dashboard Page in aside below-->
             <a href="#">Change Password</a><!-- TODO: Create Change Password Screen-->
             <a href="#">Log-Out</a><!-- TODO: Create Log-Out Screen-->
@@ -49,7 +51,7 @@ if($link === false){
                             <td><?php echo $row['username']; ?></td>
                             <td><?php echo $row['fullName']; ?></td>
                             <td><?php echo $row['userEmail']; ?></td>
-<!--                            <td><a href="edit.php?id=--><?php //echo $data['id']; ?><!--">Edit</a></td> TODO: make edit function to handle editing the table-->
+                            <td><a href="editUsers.php?id=<?php echo $data['id']; ?>">Edit</a></td>
 <!--                            <td><a href="delete.php?id=--><?php //echo $data['id']; ?><!--">Delete</a></td> TODO: make delete function for handling deleting from the table-->
                         </tr>
                         <?php

@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // unique order id
-    //id = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+    //order_num = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
     // Close connection
     mysqli_close($link);
 }
