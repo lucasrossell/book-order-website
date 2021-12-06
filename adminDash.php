@@ -31,8 +31,8 @@
         <h1>Admin Dashboard</h1>
         <h2>Welcome to your dashboard</h2>
 		<p>From here you can use the navigation bar on the left where you will find links for</p>
-		<dl>
 		<div class="adminList">
+		<dl>
 		<dt><a class="active-nav" href="adminDash.php">Home</a></dt>
 		<dd>Takes you back to your home page, which is this dashboard.</dd>
 		<dt><a href="usersList.php">View faculty database </a></dt>
