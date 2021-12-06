@@ -13,6 +13,7 @@ include_once "config.php"
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body id="view-order">
+        <!-- Nav bar for admins -->
         <div id="sidebar-nav" class="sidebar-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="adminDash.php">Home</a>
@@ -44,9 +45,8 @@ include_once "config.php"
 
                         $sql= "SELECT username, fullName, userEmail FROM users";
                         $data = mysqli_query($link, $sql);
-                        while( $row = mysqli_fetch_array($data) )
-                        {
-                    ?>
+                        while( $row = mysqli_fetch_array($data)) {
+                        ?>
                         <tr>
                             <td><?php echo $row['username']; ?></td>
                             <td><?php echo $row['fullName']; ?></td>
@@ -54,7 +54,7 @@ include_once "config.php"
                             <td><a href="editUsers.php?id=<?php echo $row['username']; ?>">Edit</a></td>
                             <td><a href="deleteUsers.php?id=<?php echo $row['username']; ?>">Delete</a></td>
                         </tr>
-                        <?php
+                    <?php
                     }
                     ?>
                 </table>
