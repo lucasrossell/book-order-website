@@ -1,26 +1,24 @@
-<!-- This is where users in user database can be edited. -->
 <?php
 require_once "config.php";
 
 // Fetching data from database
-$username = $_GET['username'];
-$qry = mysqli_query($db, "select * from users where username='$username'");
-$data = mysqli_fetch_array($qry);
+$username = $_GET['id'];
 
 // Once update button is clicked, update
 if(isset($_POST['update'])) {
     $fullName = $_POST['fullName'];
     $userEmail = $_POST['userEmail'];
+    $sql = "update users set fullName = '$fullName', userEmail='$userEmail' where username = '$username'";
 
-
-    $edit = mysqli_query($db, "update tblemp set fullName='$fullName', userEmail='$userEmail' where username='$username'");
-
-    if($edit) {
-        mysqli_close($db);
-        header("location:usersList.php");
-        exit;
-    } else {
-        echo mysqli_error();
+    if($stmt = mysqli_prepare($link, $sql)){
+        // Bind variables to the prepared statement as parameters
+        if(mysqli_stmt_execute($stmt)){
+            // Redirect to userslist page
+            header("location: usersList.php"); exit;
+        } else{
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+        mysqli_stmt_close($stmt);
     }
 }
 ?>
