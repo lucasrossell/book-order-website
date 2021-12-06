@@ -1,6 +1,7 @@
 <!-- This is the where the superadmin or faculty can choose to create a new book order or they can choose to delete users -->
 <?php
 // Don't believe we need any php.
+include_once "config.php"
 ?>
 
 <!DOCTYPE html>
@@ -13,17 +14,17 @@
     </head>
     <body id="view-order">
         <div id="sidebar-nav" class="sidebar-nav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="adminDash.php">Home</a>
-        <a class="active-nav" href="usersList.php">View faculty/users database </a>
-        <a href="deadlineEmail.php">Broadcast an email for deadlines </a>
-        <a href="deleteUsers.php">Delete an existing account </a>
-        <a href="register.php">Create a new account </a>
-        <a href="invEmail.php">Send invitation email </a>
-        <a href="openOrder.php">View list of book requests</a>
-        <a href="adminReq.php">Create Final Book Request</a>
-        <a href="resetPass.php">Change Password</a>
-        <a href="logoutPage.php">Log-Out</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="adminDash.php">Home</a>
+            <a class="active-nav" href="usersList.php">View faculty/users database </a>
+            <a href="deadlineEmail.php">Broadcast an email for deadlines </a>
+            <a href="deleteUsers.php">Delete an existing account </a>
+            <a href="register.php">Create a new account </a>
+            <a href="invEmail.php">Send invitation email </a>
+            <a href="openOrder.php">View list of book requests</a>
+            <a href="adminReq.php">Create Final Book Request</a>
+            <a href="resetPass.php">Change Password</a>
+            <a href="logoutPage.php">Log-Out</a>
         </div>
 
         <div id="main" class="view-order-content">
@@ -50,13 +51,14 @@
                             <td><?php echo $row['username']; ?></td>
                             <td><?php echo $row['fullName']; ?></td>
                             <td><?php echo $row['userEmail']; ?></td>
-                            <td><a href="editUsers.php?id=<?php echo $data['username']; ?>">Edit</a></td>
-                            <td><a href="deleteUsers.php?id=<?php echo $data['username']; ?>">Delete</a></td>
+                            <td><a href="editUsers.php?id=<?php echo $row['username']; ?>">Edit</a></td>
+                            <td><a href="deleteUsers.php?id=<?php echo $row['username']; ?>">Delete</a></td>
                         </tr>
                         <?php
                     }
                     ?>
                 </table>
+
             </div>
 
         </div>
@@ -73,7 +75,7 @@
                 document.getElementById("main").style.marginLeft= "0";
             }
         </script>
-    <?php mysqli_close($link); ?>
+
     </body>
 </html>
 
