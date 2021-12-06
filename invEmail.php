@@ -1,7 +1,7 @@
 <!-- Broadcasting an email to invite a professor to request book information -->
 <?php
 require_once "config.php";
-// going to have to edit and change this to fit our project
+
 function secure_email($field) {
     // sanitize email removes illegal characters
     $field = filter_var($field, FILTER_SANITIZE_EMAIL);

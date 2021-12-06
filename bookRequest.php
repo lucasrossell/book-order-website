@@ -1,16 +1,13 @@
-<!--TODO: Add backend functionality for quantity of books to order and class that the books are being ordered for-->
-<!--TODO: Add backend for redirect to dashboard after submitting order-->
-<!--TODO: Add a unique order id number -->
+
 <?php
-//This section is currently broken
-// Working on making this correctly interact with the mysql server.
+//This section is currently broken; working on making this correctly interact with the mysql server.
 
 // Include config file
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$title = $author = $edition = $publisher = $ISBN = $book_qty = "";
-$title_err = $author_err = $edition_err = $publisher_err = $ISBN_err = $book_qty_err="";
+$title = $author = $edition = $publisher = $ISBN = $book_qty = $class = "";
+$title_err = $author_err = $edition_err = $publisher_err = $ISBN_err = $book_qty_err = $class_err ="";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -48,6 +45,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $book_qty = trim($_POST["book_qty"]);
     }
+
+    // Validate quantity of books
+    if(empty(trim($_POST["class"]))){
+        $class_err = "Must insert class number.";
+    } else {
+        $class = trim($_POST["class"]);
+    }
     
     // Validate ISBN
     if(empty(trim($_POST["ISBN"]))){
@@ -57,11 +61,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Prepare a select statement
 //        $sql = "SELECT ISBN FROM books WHERE ISBN = ?";
-        $sql='INSERT INTO books(title, author, edition, publisher, ISBN, book_qty, order_num) VALUES (?, ?, ?, ?, ?, ?,?) ';
+        $sql='INSERT INTO books(title, author, edition, publisher, ISBN, book_qty, order_num, class) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ';
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssssi", $param_title, $param_author, $param_ed, $param_pub, $param_ISBN, $param_qty, $param_ord_num);
+            mysqli_stmt_bind_param($stmt, "ssssssis", $param_title, $param_author, $param_ed, $param_pub, $param_ISBN, $param_qty, $param_ord_num, $param_class);
 
             // Set parameters
             $param_title = trim($_POST["title"]);
@@ -70,7 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_pub = trim($_POST["publisher"]);
             $param_ISBN = trim($_POST["ISBN"]);
             $param_qty = trim($_POST["book_qty"]);
-            $param_ord_num = rand(0,100); // Change this to generate unique number?
+            $param_class = trim($_POST["class"]);
+            $param_ord_num = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
+            //$param_ord_num = rand(0,100); // Change this to generate unique number?
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -89,10 +95,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Close statement
             mysqli_stmt_close($stmt);
         }
+
+        // Redirect to dashboard once submit is clicked.
+        if(isset($_POST['submit'])) {
+            header("location:profDash.php");
+        }
     }
 
-    // unique order id
-    //order_num = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
     // Close connection
     mysqli_close($link);
 }
@@ -109,12 +118,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body id="order-body">
         <div id="sidebar-nav" class="sidebar-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="profDash.php">Home</a>
-            <a class="active-nav" href="bookRequest.php">Book Order</a> <!-- redirects to create a new request -->
-            <a href="#">View Open Orders</a> <!-- When clicked shows the form on Dashboard Page in aside below-->
-            <a href="#">Change Password</a><!-- TODO: Create Change Password Screen-->
-            <a href="#">Log-Out</a><!-- TODO: Create Log-Out Screen-->
+            <a href="profDash.php">Home</a> <!-- Home button-->
+            <a class="active-nav" href="bookRequest.php">New Book Order </a>
+            <a href="openOrder.php">View/Edit Open Order</a>
+            <a href="resetPass.php">Change Password</a>
+            <a href="logoutPage.php">Log-Out</a>
         </div>
+        
         <div class="order-header">
             <h1></h1>
         </div>

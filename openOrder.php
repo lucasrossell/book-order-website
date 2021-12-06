@@ -12,13 +12,13 @@
     </head>
     <body id="dash">
     <div id="sidebar-nav" class="sidebar-nav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="profDash.php">Home</a> <!-- Home button-->
-        <a href="bookRequest.php">New Book Order </a> <!-- redirects to create a new request -->
-        <a class="active-nav" href="openOrder.php">View Open Order</a> <!-- When clicked shows the form on Dashboard Page below?-->
-        <a href="#">Change Password</a><!-- TODO: Create Change Password Screen-->
-        <a href="#">Log-Out</a><!-- TODO: Create Log-Out Screen-->
-    </div>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="profDash.php">Home</a> <!-- Home button-->
+            <a href="bookRequest.php">New Book Order </a>
+            <a class="active-nav" href="openOrder.php">View/Edit Open Order</a>
+            <a href="resetPass.php">Change Password</a>
+            <a href="logoutPage.php">Log-Out</a>
+        </div>
 
     <div id="main" class="dash-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer position:absolute;" onclick="openNav()">&#9776;  Prof's Dashboard</span>
