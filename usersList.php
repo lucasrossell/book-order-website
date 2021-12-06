@@ -44,9 +44,8 @@
 
                         $sql= "SELECT username, fullName, userEmail FROM users";
                         $data = mysqli_query($link, $sql);
-                        while( $row = mysqli_fetch_array($data) )
-                        {
-                    ?>
+                        while( $row = mysqli_fetch_array($data)) {
+                        ?>
                         <tr>
                             <td><?php echo $row['username']; ?></td>
                             <td><?php echo $row['fullName']; ?></td>
@@ -54,7 +53,7 @@
                             <td><a href="editUsers.php?id=<?php echo $data['username']; ?>">Edit</a></td>
                             <td><a href="deleteUsers.php?id=<?php echo $data['username']; ?>">Delete</a></td>
                         </tr>
-                        <?php
+                    <?php
                     }
                     ?>
                 </table>
