@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body id="view-order">
+        <!-- Nav bar for admins -->
         <div id="sidebar-nav" class="sidebar-nav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="adminDash.php">Home</a>

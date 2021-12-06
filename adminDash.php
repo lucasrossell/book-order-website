@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 <body id="dash">
+    <!-- Nav bar for admins -->
     <div id="sidebar-nav" class="sidebar-nav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a class="active-nav" href="adminDash.php">Home</a>

@@ -22,6 +22,7 @@
 
     <div id="main" class="dash-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer position:absolute;" onclick="openNav()">&#9776;  Prof's Dashboard</span>
+        <h1>Professor Dashboard</h1>
        <h2>Dashboard content??</h2>
 
     </div>
