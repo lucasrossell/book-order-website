@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             // If a professor, redirect to profDash.php
                             // If a faculty/admin, redirect to adminDash.php
-                            if($type = "professor") {
+                            if($type == "professor") {
                                 header("location: profDash.php"); exit;
                             } else {
                                 header("location: adminDash.php"); exit;
