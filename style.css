@@ -303,7 +303,21 @@ input::-webkit-inner-spin-button{
 	padding: 1px 16px;
 	height: 1000px;
  }
- /* Responsive sidebar nav */
+ 
+.adminList {
+	width: 600px;
+}
+
+.adminList a {
+	text-decoration: none;
+	color: white;
+	font-weight: bold;
+}
+.adminList a:hover {
+	text-decoration: none;
+	color: darkgrey;
+}
+ /* Responsive sidebar nav */ 
  #dash{
 	 margin: 0;
 	 font-family:"Roboto", sans-serif;
