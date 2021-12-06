@@ -1,15 +1,8 @@
  <?php 
 session_start();
-
-// once logged in if a professor, redirect to profDash.php
-// once logged in if a faculty/admin, redirect to adminDash.php
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header("location: ")
-    exit;
-}
 require_once "config.php";
 
-$username = $password = "";
+$username = $password = $type = "";
 $username_err = $password_err = $login_err = "";
 
 // Processing form data when form is submitted
@@ -32,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validate credentials
     if(empty($username_err) && empty($password_err)) {
         //Prepare a select statement
-        $sql = "SELECT username, password FROM users WHERE username = ?";
+        $sql = "SELECT username, password, type FROM users WHERE username = ?";
 
         if($stmt = mysqli_prepare($link, $sql)) {
             mysqli_stmt_bind_param($stmt, "s", $param_username);
@@ -51,9 +44,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["username"] = $username;
+                            $type = $_GET['type'];
 
-                            // Redirect to welcome page
-                            header("location: ");
+// once logged in if a professor, redirect to profDash.php
+// once logged in if a faculty/admin, redirect to adminDash.php
+                            if($type = "professor") {
+                                header("location: profDash.php");
+                            } else {
+                                header("location: adminDash.php")
+                            }
                         } else {
                             // Password is not valid
                             $login_err = "Invalid username or password.";

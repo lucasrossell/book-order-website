@@ -86,6 +86,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $userEmail = trim($_POST["userEmail"]);
     }
 
+    $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
+
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($fullName_err) && empty($email_err)){
 
@@ -119,6 +121,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 }
 ?>
+<?php if ($type) : ?>
+    <p>You selected <span style="type:<?php echo $type ?>"><?php echo $type ?></span></p>
+    <p><a href="register.php">Back to the form</a><p>
+<?php else : ?>
+    <p>You did not select any type</p>
+<?php endif ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -150,6 +158,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <p>Email</p>
             <input type="text" name="userEmail" class="form-control <?php echo(!empty($email_err)) ? 'is-invalid': ''; ?>" value="<?php echo $userEmail; ?>" placeholder="Enter Your Email">
             <span class="invalid-feedback"><?php echo $email_err; ?></span>
+        <p>Type of Account </p>
+            <div>
+                <label for="type">Account type:</label>
+                <select name="type" id="type">
+                    <option value="">--- Choose a type ---</option>
+                    <option value="professor" selected>Professor</option>
+                    <option value="staff">Staff</option>
+                </select>
+            </div>
         <input type="submit" name="" value="Submit" id="sub-click"><br/>
         <a href="loginPage.php">Already have an account? Login here.</a>
             </form>
