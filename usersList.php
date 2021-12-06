@@ -1,6 +1,6 @@
 <!-- This is the where the superadmin or faculty can choose to create a new book order or they can choose to delete users -->
 <?php
-require_once "config.php";
+// Don't believe we need any php.
 ?>
 
 <!DOCTYPE html>

@@ -1,8 +1,6 @@
 <?php
-//    PHP stuff goes here
-require_once "config.php";
-//?>
-
+// Don't believe we need any php.
+?>
 
 <!DOCTYPE html>
 <html lang="en">

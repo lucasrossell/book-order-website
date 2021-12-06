@@ -1,5 +1,6 @@
 <!-- This is the dashboard where professors can choose to create a new book order or they can choose to edit a book order or delete a book order -->
 <?php
+// Don't believe we need any php.
 ?>
 
 <!DOCTYPE html>

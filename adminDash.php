@@ -1,4 +1,5 @@
 <?php 
+// Don't believe we need any php.
 ?>
 
 <!DOCTYPE html>
