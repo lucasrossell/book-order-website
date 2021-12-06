@@ -1,5 +1,6 @@
 <!--TODO - Add User type selection when creating accounts, i.e. superuser/admin, faculty, professor-->
 <!--TODO - in PHP: have submit button redirect page after registering to the dashboard page -->
+<!-- TODO - Create a way to add the option of whether the user is staff or prof -->
 <?php
 require_once 'config.php';
  //This section is currently broken
