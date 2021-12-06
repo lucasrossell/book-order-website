@@ -1,6 +1,7 @@
 <?php
-require_once "config.php";
-unset($_SESSION["username"]);
-unset($_SESSION["fullName"]);
-header("Location:loginPage.php");
+session_start();
+$_SESSION = array();
+session_destroy();
+header("location:loginPage.php");
+exit;
 ?>

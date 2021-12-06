@@ -1,6 +1,6 @@
 <!-- This is the where the superadmin or faculty can choose to create a new book order or they can choose to delete users -->
 <?php
-include"config.php";
+require_once "config.php";
 ?>
 
 <!DOCTYPE html>
@@ -12,14 +12,18 @@ include"config.php";
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body id="view-order">
-        <!-- TODO: edit this navbar for faculty/admin -->
         <div id="sidebar-nav" class="sidebar-nav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="profDash.php">Home</a>
-            <a href="#">New Book Order </a> <!-- redirects to create a new request -->
-            <a class="active-nav" href="#">View Open Order</a> <!-- When clicked shows the form on Dashboard Page in aside below-->
-            <a href="resetPass.php">Change Password</a>
-            <a href="logoutPage.php">Log-Out</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="adminDash.php">Home</a>
+        <a class="active-nav" href="usersList.php">View faculty/users database </a>
+        <a href="deadlineEmail.php">Broadcast an email for deadlines </a>
+        <a href="deleteUsers.php">Delete an existing account </a>
+        <a href="register.php">Create a new account </a>
+        <a href="invEmail.php">Send invitation email </a>
+        <a href="openOrder.php">View list of book requests</a>
+        <a href="bookRequest.php">Create Book Request</a>
+        <a href="resetPass.php">Change Password</a>
+        <a href="logoutPage.php">Log-Out</a>
         </div>
 
         <div id="main" class="view-order-content">

@@ -21,7 +21,7 @@
         <a href="openOrder.php">View list of book requests</a>
         <a href="bookRequest.php">Create Book Request</a>
         <a href="resetPass.php">Change Password</a>
-        <a href="#">Log-Out</a><!-- TODO: Create Log-Out Screen-->
+        <a href="logoutPage.php">Log-Out</a>
     </div>
 
     <div id="main" class="dash-content">

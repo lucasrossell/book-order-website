@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $book_qty = trim($_POST["book_qty"]);
     }
+    
     // Validate ISBN
     if(empty(trim($_POST["ISBN"]))){
         $ISBN_err = "Please enter the book's ISBN.";
@@ -56,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Prepare a select statement
 //        $sql = "SELECT ISBN FROM books WHERE ISBN = ?";
-        $sql='INSERT INTO 2books(title, author, edition, publisher, ISBN, book_qty, order_num) VALUES (?, ?, ?, ?, ?, ?,?) ';
+        $sql='INSERT INTO books(title, author, edition, publisher, ISBN, book_qty, order_num) VALUES (?, ?, ?, ?, ?, ?,?) ';
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
