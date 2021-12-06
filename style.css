@@ -307,6 +307,8 @@ input::-webkit-inner-spin-button{
  #dash{
 	 margin: 0;
 	 font-family:"Roboto", sans-serif;
+	 background:url(images/dashBackground.jpg) no-repeat center center fixed;
+	 background-size:cover;
  }
 
  .sidebar-nav {
