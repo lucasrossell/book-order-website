@@ -26,10 +26,12 @@ if(isset($_POST['update'])) {
 ?>
 
 <!DOCTYPE html>
-    <html lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <head>Edit Book Request</head>
+<html lang="en">
+    <head>
+        <title>Edit Users</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
     <body>
         <form method="POST">
             <input type="text" name="fullName" value="<?php echo $data['fullName'] ?>" placeholder="Enter your full name" Required>

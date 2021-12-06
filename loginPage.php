@@ -1,6 +1,8 @@
  <?php 
 // insert php here
 require_once "config.php";
+// once logged in if a professor, redirect to profDash.php
+// once logged in if a faculty/admin, redirect to adminDash.php
  ?>
  
  <!DOCTYPE html>

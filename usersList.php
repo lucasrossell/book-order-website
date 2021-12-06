@@ -18,8 +18,8 @@ include"config.php";
             <a href="profDash.php">Home</a>
             <a href="#">New Book Order </a> <!-- redirects to create a new request -->
             <a class="active-nav" href="#">View Open Order</a> <!-- When clicked shows the form on Dashboard Page in aside below-->
-            <a href="#">Change Password</a><!-- TODO: Create Change Password Screen-->
-            <a href="#">Log-Out</a><!-- TODO: Create Log-Out Screen-->
+            <a href="resetPass.php">Change Password</a>
+            <a href="logoutPage.php">Log-Out</a>
         </div>
 
         <div id="main" class="view-order-content">
