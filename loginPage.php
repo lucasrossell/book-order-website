@@ -1,5 +1,4 @@
- <?php 
-session_start();
+<?php 
 require_once "config.php";
 
 $username = $password = $type = "";
@@ -30,28 +29,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         if($stmt = mysqli_prepare($link, $sql)) {
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             $param_username = $username;
-
             if(mysqli_stmt_execute($stmt)) {
                 mysqli_stmt_store_result($stmt);
 
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1) {
-                    mysqli_stmt_bind_result($stmt, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $username, $password, $type);
+                    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                     if(mysqli_stmt_fetch($stmt)) {
                         if(password_verify($password, $hashed_password)) {
-                            session_start();
 
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["username"] = $username;
-                            $type = $_GET['type'];
 
                             // If a professor, redirect to profDash.php
                             // If a faculty/admin, redirect to adminDash.php
                             if($type = "professor") {
-                                header("location: profDash.php");
+                                header("location: profDash.php"); exit;
                             } else {
-                                header("location: adminDash.php");
+                                header("location: adminDash.php"); exit;
                             }
                         } else {
                             // Password is not valid
@@ -71,7 +68,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     mysqli_close($link);
 }
 ?>
- 
  <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -85,13 +81,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="images/avatar.png" class="avatar" alt="Avatar">
             <h1>Login Here</h1>
             <p>Please fill in your credentials to login.</p>
-
+            
             <?php
             if(!empty($login_err)) {
                 echo '<div class="alert alert-danger">' . $login_err . '</div>';
             }
             ?>
-
+            
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="form-group">
                     <label>Username</label>

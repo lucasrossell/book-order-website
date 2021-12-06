@@ -1,5 +1,4 @@
 <?php
-require_once 'config.php';
  //This section is currently broken; working on making this correctly interact with the mysql server.
 
 // Define variables and initialize with empty values
@@ -14,6 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Define variables and initialize with empty values
     $username = $password = $confirm_password = $userEmail = $fullName = "";
     $username_err = $password_err = $confirm_password_err = $email_err = $fullName_err = "";
+    $type = "Professor";
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
@@ -88,22 +88,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($fullName_err) && empty($email_err)){
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password, fullName, userEmail) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO users (username, password, fullName, userEmail, type) VALUES (?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, 'ssss', $param_username, $param_password, $param_fullName, $param_email);
+            mysqli_stmt_bind_param($stmt, 'sssss', $param_username, $param_password, $param_fullName, $param_email, $param_type);
 
             // Set parameters
             $param_username = $username;
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+            $param_password = $password;
             $param_fullName = $fullName;
             $param_email = $userEmail;
-
+            $param_type = $type;
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: loginPage.php");
+                header("location: loginPage.php"); exit;
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
@@ -118,17 +118,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     mysqli_close($link);
 
     if(isset($_POST['submit'])) {
-        header("location: loginPage.php");
+        header("location: loginPage.php"); exit;
     }
 }
 ?>
-<?php if ($type) : ?>
-    <p>You selected <span style="type:<?php echo $type ?>"><?php echo $type ?></span></p>
-    <p><a href="register.php">Back to the form</a><p>
-<?php else : ?>
-    <p>You did not select any type</p>
-<?php endif ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
