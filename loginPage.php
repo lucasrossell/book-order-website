@@ -46,8 +46,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["username"] = $username;
                             $type = $_GET['type'];
 
-// once logged in if a professor, redirect to profDash.php
-// once logged in if a faculty/admin, redirect to adminDash.php
+                            // If a professor, redirect to profDash.php
+                            // If a faculty/admin, redirect to adminDash.php
                             if($type = "professor") {
                                 header("location: profDash.php");
                             } else {
@@ -67,7 +67,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             mysqli_stmt_close($stmt);
         }
-
     }
     mysqli_close($link);
 }
