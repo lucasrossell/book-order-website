@@ -22,9 +22,9 @@ include_once "config.php"
             <a href="deleteUsers.php">Delete an existing account </a>
             <a href="register.php">Create a new account </a>
             <a href="invEmail.php">Send invitation email </a>
-            <a href="openOrder.php">View list of book requests</a>
+            <a href="adminOrder.php">View list of book requests</a>
             <a href="adminReq.php">Create Final Book Request</a>
-            <a href="resetPass.php">Change Password</a>
+            <a href="changePass.php">Change Password</a>
             <a href="logoutPage.php">Log-Out</a>
         </div>
 
