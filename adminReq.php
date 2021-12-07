@@ -31,7 +31,7 @@ $semester = $_GET['value'];
     </div>
 
     <div id="main" class="dash-content">
-        <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Admin's Dashboard</span>
+        <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Admin's Dashboard</span><br>
         <br>
         <h2>Open order available. Here is the information on the Book(s) Ordered:</h2>
         <table class="prof-order-list">
