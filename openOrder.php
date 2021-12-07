@@ -52,8 +52,8 @@ include_once "config.php"
                     <td><?php echo $row['book_qty']; ?></td>
                     <td><?php echo $row['class']; ?></td>
                     <td><?php echo $row['semester']; ?></td>
-                    <td><a href="editBookReq.php?id=<?php echo $row['order_id']; ?>">Edit</a></td>
-                    <td><a href="deleteBookReq.php?id=<?php echo $row['order_id']; ?>">Delete</a></td>
+                    <td><a href="editBookReq.php?order_id=<?php echo $row['order_id']; ?>">Edit</a></td>
+                    <td><a href="deleteBookReq.php?order_id=<?php echo $row['order_id']; ?>">Delete</a></td>
                 </tr>
             <?php
             }
