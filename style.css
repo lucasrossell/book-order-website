@@ -386,3 +386,17 @@ input::-webkit-inner-spin-button{
 		 float: none;
 	 }
  }
+
+ /* invite email */
+ .inviteBody{
+	margin: 0;
+	font-family:"Roboto", sans-serif;
+	background-image:url(images/dashBackground.jpg);
+	background-size:cover;
+}
+.inviteBody td{
+	padding: 15px;
+	text-align:left;
+}
+
+ .inviteBody tr:nth-child(even) {background-color: #f2f2f200;}
