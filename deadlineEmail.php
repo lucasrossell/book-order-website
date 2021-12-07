@@ -31,8 +31,9 @@ if(isset($_POST['submit'])) {
         <title>Broadcast Email</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <body>
+    <body class="deadLine">
         <h1>Broadcast Email</h1>
         <form action='' method='post'>
             <table>

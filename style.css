@@ -414,3 +414,46 @@ input::-webkit-inner-spin-button{
 }
 
  .changePass tr:nth-child(even) {background-color: #f2f2f200;}
+
+ 
+  /* editUsers */
+  .editUsers{
+	margin: 20px;
+	font-family:"Roboto", sans-serif;
+	background-image:url(images/dashBackground.jpg);
+	background-size:cover;
+}
+.editUsers td{
+	padding: 15px;
+	text-align:left;
+}
+
+ .editUsers tr:nth-child(even) {background-color: #f2f2f200;} 
+ 
+ /* deadLine */
+ .deadLine{
+   margin: 20px;
+   font-family:"Roboto", sans-serif;
+   background-image:url(images/dashBackground.jpg);
+   background-size:cover;
+}
+.deadLine td{
+   padding: 15px;
+   text-align:left;
+}
+
+.deadLine tr:nth-child(even) {background-color: #f2f2f200;}
+
+ /* editReq */
+ .editReq{
+	margin: 20px;
+	font-family:"Roboto", sans-serif;
+	background-image:url(images/dashBackground.jpg);
+	background-size:cover;
+ }
+ .editReq td{
+	padding: 15px;
+	text-align:left;
+ }
+ 
+ .editReq tr:nth-child(even) {background-color: #f2f2f200;}

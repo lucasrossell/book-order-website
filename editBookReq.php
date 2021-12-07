@@ -36,8 +36,10 @@ if(isset($_POST['cancel'])) {
     <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <head>Edit Book Request</head>
-    <body>
+    <head>    
+    <link rel="stylesheet" type="text/css" href="style.css">
+    Edit Book Request</head>
+    <body class="editReq">
         <form method="POST">
             <p>Enter Title:</p>
             <input type="text" name="title" value="<?php echo $data['title'] ?>" placeholder="Enter Title" Required>
