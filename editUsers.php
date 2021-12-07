@@ -2,7 +2,7 @@
 require_once "config.php";
 
 // Fetching data from URL
-$username = $_GET['id'];
+$username = $_GET['username'];
 
 // Once update button is clicked, update
 if(isset($_POST['update'])) {
