@@ -27,7 +27,7 @@
 		<p>From here you can use the navigation bar on the left where you will find links for</p>
        <div class="adminList">
 		<dl>
-		<dt><a class="active-nav" href="adminDash.php">Home</a></dt>
+		<dt><a class="active-nav" href="profDash.php">Home</a></dt>
 		<dd>Takes you back to your home page, which is this dashboard.</dd>
 		<dt><a href="bookRequest.php">New Book Order </a></dt>
 		<dd>Takes you to the page where you can create a new book order</dd>
