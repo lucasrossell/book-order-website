@@ -11,7 +11,7 @@ if(isset($_POST['update'])) {
     $fullName = $_POST['fullName'];
     $userEmail = $_POST['userEmail'];
 
-    $edit = mysqli_query($link, "update users set fullname='$fullname', userEmail='$userEmail' where username='$username'");
+    $edit = mysqli_query($link, "update users set fullname='$fullName', userEmail='$userEmail' where username='$username'");
 
     if($edit) {
         mysqli_close($link);
