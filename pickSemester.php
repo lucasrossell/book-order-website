@@ -1,5 +1,5 @@
 <!-- Create a final list of book requests -->
-<?php 
+<?php
 require_once "config.php";
 ?>
 
@@ -34,10 +34,16 @@ require_once "config.php";
             <div>
                 <label for="semester">Semester:</label>
                 <select name="semester" id="semester">
+                    <?php
+                        $qry = mysqli_query($link, "SELECT DISTINCT semester from BOOKS" );
+                        $data = mysqli_fetch_array($qry);
+                        while( $data > 0){
+                    ?>
                     <option value="">--- Choose a Semester ---</option>
-                    <option value="fall21" selected>Fall 2021</option>
-                    <option value="spring22">Spring 2022</option>
-                    <option value="summer22">Summer 2022</option>
+                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option>
+                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option>
+                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option>
+                    <?php }?>
                 </select>
             </div>
         <a href="adminReq.php?value=<?php echo $data['semester']; ?>">Submit</a>
