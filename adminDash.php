@@ -1,5 +1,7 @@
-<?php 
+<?php
+session_start();
 include_once "config.php";
+$username = $_SESSION['username'];
 
 if(isset($_POST['change'])) {
     header("location: changePass.php"); exit;
