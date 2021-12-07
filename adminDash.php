@@ -28,6 +28,7 @@
 
     <div id="main" class="dash-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776; </span>
+        <br>
         <h1>Admin Dashboard</h1>
         <h2>Welcome to your dashboard</h2>
 		<p>From here you can use the navigation bar on the left where you will find links for</p>

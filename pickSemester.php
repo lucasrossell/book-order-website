@@ -29,6 +29,7 @@ require_once "config.php";
 
     <div id="main" class="dash-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Admin's Dashboard</span>
+        <br>
         <h2>Pick a semester that you'd like the final book request for.</h2>
             <div>
                 <label for="semester">Semester:</label>
@@ -39,7 +40,7 @@ require_once "config.php";
                     <option value="summer22">Summer 2022</option>
                 </select>
             </div>
-        <a href="adminReq.php?id=<?php echo $data['semester']; ?>">Submit</a>
+        <a href="adminReq.php?value=<?php echo $data['semester']; ?>">Submit</a>
     </div>
     <script>
         function openNav() {

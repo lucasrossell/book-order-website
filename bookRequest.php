@@ -100,15 +100,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Close statement
             mysqli_stmt_close($stmt);
         }
-
-        // Redirect to dashboard once submit is clicked.
-        if(isset($_POST['submit'])) {
-            header("location:profDash.php");
-        }
     }
-
     // Close connection
     mysqli_close($link);
+
+    // Redirect to dashboard once submit is clicked.
+    if(isset($_POST['submit'])) {
+        header("location: profDash.php");
+        exit;
+    }
 }
 ?>
 
