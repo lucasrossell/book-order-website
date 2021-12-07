@@ -8,5 +8,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `ISBN` varchar(15) NOT NULL UNIQUE,
   `class` varchar(30) NOT NULL,
   `semester` varchar(30) NOT NULL,
-  PRIMARY KEY (`order_id`)
+  `username` varchar(24) NOT NULL,
+  PRIMARY KEY (`order_id`),
+  FOREIGN KEY (`username`) REFERENCES users(`username`)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8;
