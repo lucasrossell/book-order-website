@@ -21,6 +21,9 @@ if(isset($_POST['submit'])) {
     }
     header("location:loginPage.php"); exit;
 }
+if(isset($_POST['cancel'])) {
+    header("location: profDash.php"); exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +39,7 @@ if(isset($_POST['submit'])) {
             <table>
                 <tr><td>username:</td><td><input type='text' name='username'/></td></tr>
                 <tr><td></td><td><input type='submit' name='submit' value='Submit'/></td></tr>
+                <tr><td></td><td><input type="submit" name="cancel" value="Cancel"/></td></tr>
             </table>
         </form>
     </body>

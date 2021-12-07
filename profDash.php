@@ -33,8 +33,8 @@ include_once "config.php"
 		<dd>Takes you to the page where you can create a new book order</dd>
         <dt><a href="openOrder.php">View/Edit Open Order</a></dt>
 		<dd>Allows you to review and edit book requests forms that haven't been completed yet.</dd>
-        <dt><a href="resetPass.php?id=<?php echo $row['username']; ?>">Reset Password</a></dt>
-		<dd>Lets you change your password if need be.</dd>
+        <dt><a href="resetPass.php?">Reset Password</a></dt>
+		<dd>Lets you reset your password if need be.</dd>
         <dt><a href="logoutPage.php">Log-Out</a></dt>
 		<dd>Logs you out of the system.</dd>
 		</dl>

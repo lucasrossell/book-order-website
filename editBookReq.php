@@ -1,7 +1,7 @@
 <?php
 require_once "config.php";
 
-// Fetching data from database 
+// Fetching data from url 
 $order_id = $_GET['order_id'];
 $qry = mysqli_query($link, "select * from books where order_id='$order_id'");
 $data = mysqli_fetch_array($qry);
@@ -26,6 +26,9 @@ if(isset($_POST['update'])) {
     } else {
         echo mysqli_error($link);
     }
+}
+if(isset($_POST['cancel'])) {
+    header("location: openOrder.php"); exit;
 }
 ?>
 
@@ -62,6 +65,7 @@ if(isset($_POST['update'])) {
                         </div>
             <br><br>
             <input type="submit" name="update" value="Update">
+            <input type="submit" name="cancel" value="Cancel">
         </form>
     </body>
 </html>
