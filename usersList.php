@@ -12,7 +12,7 @@ include_once "config.php"
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-    <body id="view-order">
+    <body id="dash">
         <!-- Nav bar for admins -->
         <div id="sidebar-nav" class="sidebar-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -51,8 +51,8 @@ include_once "config.php"
                             <td><?php echo $row['username']; ?></td>
                             <td><?php echo $row['fullName']; ?></td>
                             <td><?php echo $row['userEmail']; ?></td>
-                            <td><a href="editUsers.php?id=<?php echo $row['username']; ?>">Edit</a></td>
-                            <td><a href="deleteUsers.php?id=<?php echo $row['username']; ?>">Delete</a></td>
+                            <td><a href="editUsers.php?username=<?php echo $row['username']; ?>">Edit</a></td>
+                            <td><a href="deleteUsers.php?username=<?php echo $row['username']; ?>">Delete</a></td>
                         </tr>
                     <?php
                     }
