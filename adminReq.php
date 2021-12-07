@@ -3,7 +3,7 @@
 require_once "config.php";
 
 // Fetching data from URL
-$semester = $_GET['id'];
+$semester = $_GET['value'];
 ?>
 
 <!DOCTYPE html>
