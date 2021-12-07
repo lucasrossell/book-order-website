@@ -39,7 +39,7 @@ require_once "config.php";
                     <option value="summer22">Summer 2022</option>
                 </select>
             </div>
-        <a href="adminReq.php?id=<?php echo $data['semester']; ?>">Submit</a>
+        <a href="adminReq.php?value=<?php echo $data['semester']; ?>">Submit</a>
     </div>
     <script>
         function openNav() {
