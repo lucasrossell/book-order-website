@@ -43,11 +43,12 @@ include_once "config.php"
                     <td>Quantity Ordered</td>
                     <td>Class</td>
                     <td>Semester</td>
+                    <td>User</td>
                     <td>Edit</td>
                     <td>Delete</td>
                 </thead>
         <?php  // PHP To populate the list of books not sure if this php would work
-            $sql= "SELECT order_id, title, author, edition, publisher, ISBN, book_qty, class, semester FROM books";
+            $sql= "SELECT order_id, title, author, edition, publisher, ISBN, book_qty, class, semester, username FROM books";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {
             ?>
@@ -61,6 +62,7 @@ include_once "config.php"
                     <td><?php echo $row['book_qty']; ?></td>
                     <td><?php echo $row['class']; ?></td>
                     <td><?php echo $row['semester']; ?></td>
+                    <td><?php echo $row['username']; ?></td>
                     <td><a href="editBookReq.php?order_id=<?php echo $row['order_id']; ?>">Edit</a></td>
                     <td><a href="deleteBookReq.php?order_id=<?php echo $row['order_id']; ?>">Delete</a></td>
                 </tr>

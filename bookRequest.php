@@ -1,7 +1,6 @@
-
 <?php
 //This section is currently broken; working on making this correctly interact with the mysql server.
-
+session_start();
 // Include config file
 require_once "config.php";
 
@@ -67,11 +66,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ISBN_err = "ISBN can only contain numbers.";
     } else {
 
-        $sql="INSERT INTO books(title, author, edition, publisher, book_qty, order_id, ISBN, class, semester) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql="INSERT INTO books(title, author, edition, publisher, book_qty, order_id, ISBN, class, semester, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssssssss", $param_title, $param_author, $param_ed, $param_pub, $param_qty, $param_ord_id, $param_ISBN, $param_class, $param_sem);
+            mysqli_stmt_bind_param($stmt, "ssssssssss", $param_title, $param_author, $param_ed, $param_pub, $param_qty, $param_ord_id, $param_ISBN, $param_class, $param_sem, $param_user);
 
             // Set parameters
             $param_title = trim($_POST["title"]);
@@ -83,6 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_ISBN = trim($_POST["ISBN"]);
             $param_class = trim($_POST["class"]);
             $param_sem = trim($_POST["semester"]);
+            $param_user = $_SESSION["username"];
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 /* store result */
@@ -94,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $ISBN = trim($_POST["ISBN"]);
                 }
             } else {
+                echo $stmt;
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
