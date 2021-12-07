@@ -95,7 +95,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="text" name="password" placeholder="Enter Password" class="form-control <?php echo(!empty($password_err)) ? 'is-invalid' : ''; ?>">
+                    <input type="password" name="password" placeholder="Enter Password" class="form-control <?php echo(!empty($password_err)) ? 'is-invalid' : ''; ?>">
                     <span class="invalid-feedback"><?php echo $password_err; ?></span>
                 </div>
                 <div class="form-group">
