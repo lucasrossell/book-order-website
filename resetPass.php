@@ -12,12 +12,14 @@ if(isset($_POST['submit'])) {
         if($username==$fetch_user_id) {
             $to = $email;
             $subject = "Temporary Password - UCF Books";
-            $txt = "Your temporary password is : $tempPass.";
-            $txt = "If you did not request this temporary password email, no action is needed.";
-            $txt = "However, you may want to log in and change your password for security reasons.";
-            $txt = "You can login here: loginPage.php";
+            $txt = "Your temporary password is : $tempPass. \n";
+            $txt .= "If you did not request this temporary password email, no action is needed. ";
+            $txt .= "However, you may want to log in and change your password for security reasons. ";
+            $txt .= "You can login here: loginPage.php";
             $headers = "From: tempPass@ucf.com";
             mail($to,$subject,$txt,$headers);
+            $sql = "update users set password = '$tempPass' where username = '$username'";
+            mysqli_query($link, $sql);
         } else {
             echo "Invalid username";
         }
