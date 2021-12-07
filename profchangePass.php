@@ -4,7 +4,7 @@ $currentuser = $_SESSION['username'];
 require_once "config.php";
 
 if(isset($_POST['cancel'])) {
-    header("location: adminDash.php"); exit;
+    header("location: profDash.php"); exit;
 }
 
 if(isset($_POST['submit'])) {
