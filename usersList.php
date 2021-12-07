@@ -29,7 +29,7 @@ include_once "config.php"
         </div>
 
         <div id="main" class="view-order-content">
-            <span id="menu-icon" style="font-size:30px;cursor:pointer position:absolute;" onclick="openNav()">&#9776; Menu</span>
+            <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776; Menu</span>
             <!--        <h2>Dashboard content??</h2>-->
 
             <div class="user-list-table">
