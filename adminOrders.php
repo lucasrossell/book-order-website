@@ -34,6 +34,7 @@ include_once "config.php"
         <div class="prof-order-list">
             <table>
                 <thead>
+                    <td>Order Id</td>
                     <td>Title</td>
                     <td>Author(s) Name(s)</td>
                     <td>Edition</td>
@@ -42,13 +43,16 @@ include_once "config.php"
                     <td>Quantity Ordered</td>
                     <td>Class</td>
                     <td>Semester</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
                 </thead>
         <?php  // PHP To populate the list of books not sure if this php would work
-            $sql= "SELECT title, author, edition, publisher, ISBN, book_qty, class, semester FROM books";
+            $sql= "SELECT order_id, title, author, edition, publisher, ISBN, book_qty, class, semester FROM books";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {
             ?>
                 <tr>
+                    <td><?php echo $row['order_id']; ?></td>
                     <td><?php echo $row['title']; ?></td>
                     <td><?php echo $row['author']; ?></td>
                     <td><?php echo $row['edition']; ?></td>
