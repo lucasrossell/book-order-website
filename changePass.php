@@ -8,6 +8,7 @@ $row = mysqli_fetch_array($result);
 if($_POST["newPassword"] == $row["confirmPassword"]) {
     mysqli_query($db, "update users set password ='" . $_POST["newPassword"] . "' where username='$username'");
     $message = "Password Changed Successfully";
+    header("location: adminDash.php"); exit;
 } else {
     $message = "Password is not correct";
 }
