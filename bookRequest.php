@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="profDash.php">Home</a> <!-- Home button-->
             <a class="active-nav" href="bookRequest.php">New Book Order </a>
             <a href="openOrder.php">View/Edit Open Order</a>
-            <a href="resetPass.php">Reset Password</a>
+            <a href="profchangePass.php">Change Password</a>
             <a href="logoutPage.php">Log-Out</a>
         </div>
         
