@@ -1,9 +1,6 @@
 <!-- Create a final list of book requests -->
 <?php 
 require_once "config.php";
-
-// Fetching data from URL
-$semester = $_GET['id'];
 ?>
 
 <!DOCTYPE html>
@@ -25,44 +22,24 @@ $semester = $_GET['id'];
         <a href="register.php">Create a new account </a>
         <a href="invEmail.php">Send invitation email </a>
         <a href="adminOrders.php">View list of book requests</a>
-        <a href="adminReq.php">Create Final Book Request</a>
+        <a class="active-nav" href="pickSemester.php">Create Final Book Request</a>
         <a href="resetPass.php">Change Password</a>
         <a href="logoutPage.php">Log-Out</a>
     </div>
 
     <div id="main" class="dash-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Admin's Dashboard</span>
-        <h2>Open order available. Here is the information on the Book(s) Ordered:</h2>
-        <table class="prof-order-list">
-            <tr>
-                <th>Title</th>
-                <th>Author(s) Name(s)</th>
-                <th>Edition</th>
-                <th>Publisher</th>
-                <th>ISBN</th>
-                <th>Quantity Ordered</th>
-                <th>Class</th>
-                <th>Semester</th>
-            </tr>
-        <?php  // PHP To populate the list of books not sure if this php would work
-            $sql= "SELECT title, author, edition, publisher, ISBN, book_qty, class, semester FROM books where semester = '$semester'";
-            $data = mysqli_query($link, $sql);
-            while( $row = mysqli_fetch_array($data)) {
-            ?>
-                <tr>
-                    <td><?php echo $row['title']; ?></td>
-                    <td><?php echo $row['author']; ?></td>
-                    <td><?php echo $row['edition']; ?></td>
-                    <td><?php echo $row['publisher']; ?></td>
-                    <td><?php echo $row['ISBN']; ?></td>
-                    <td><?php echo $row['book_qty']; ?></td>
-                    <td><?php echo $row['class']; ?></td>
-                    <td><?php echo $row['semester']; ?></td>
-                </tr>
-            <?php
-            }
-            ?>
-        </table>
+        <h2>Pick a semester that you'd like the final book request for.</h2>
+            <div>
+                <label for="semester">Semester:</label>
+                <select name="semester" id="semester">
+                    <option value="">--- Choose a type ---</option>
+                    <option value="fall21" selected>Fall 2021</option>
+                    <option value="spring22">Spring 2022</option>
+                    <option value="summer22">Summer 2022</option>
+                </select>
+            </div>
+        <a href="adminReq.php?id=<?php echo $data['semester']; ?>">Submit</a>
     </div>
     <script>
         function openNav() {
