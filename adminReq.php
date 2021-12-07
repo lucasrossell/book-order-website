@@ -25,7 +25,7 @@ $semester = $_GET['id'];
         <a href="register.php">Create a new account </a>
         <a href="invEmail.php">Send invitation email </a>
         <a href="adminOrders.php">View list of book requests</a>
-        <a href="adminReq.php">Create Final Book Request</a>
+        <a href="pickSemester.php">Create Final Book Request</a>
         <a href="resetPass.php">Change Password</a>
         <a href="logoutPage.php">Log-Out</a>
     </div>
