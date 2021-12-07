@@ -63,7 +63,7 @@ include_once "config.php"
                     <td><?php echo $row['class']; ?></td>
                     <td><?php echo $row['semester']; ?></td>
                     <td><?php echo $row['username']; ?></td>
-                    <td><a href="editBookReq.php?order_id=<?php echo $row['order_id']; ?>">Edit</a></td>
+                    <td><a href="adminEditBookReq.php?order_id=<?php echo $row['order_id']; ?>">Edit</a></td>
                     <td><a href="deleteBookReq.php?order_id=<?php echo $row['order_id']; ?>">Delete</a></td>
                 </tr>
             <?php
