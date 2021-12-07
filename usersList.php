@@ -17,7 +17,7 @@ include_once "config.php"
         <div id="sidebar-nav" class="sidebar-nav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="adminDash.php">Home</a>
-            <a class="active-nav" href="usersList.php">View faculty/users database </a>
+            <a class="active-nav" href="usersList.php">View faculty database </a>
             <a href="deadlineEmail.php">Broadcast an email for deadlines </a>
             <a href="deleteUsers.php">Delete an existing account </a>
             <a href="register.php">Create a new account </a>

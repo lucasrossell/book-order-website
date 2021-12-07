@@ -6,12 +6,12 @@ include_once "config.php"
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Professor's Dashboard View</title>
+        <title>Admin's Dashboard View</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
-<body id="dash">
+<body id="view-order">
     <!-- Nav bar for admins -->
     <div id="sidebar-nav" class="sidebar-nav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -27,21 +27,22 @@ include_once "config.php"
         <a href="logoutPage.php">Log-Out</a>
     </div>
 
-    <div id="main" class="dash-content">
+    <div id="main" class="view-order-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Admin's Dashboard</span>
         <br>
         <h2>Open order available. Here is the information on the Book(s) Ordered:</h2>
-        <table class="prof-order-list">
-            <tr>
-                <th>Title</th>
-                <th>Author(s) Name(s)</th>
-                <th>Edition</th>
-                <th>Publisher</th>
-                <th>ISBN</th>
-                <th>Quantity Ordered</th>
-                <th>Class</th>
-                <th>Semester</th>
-            </tr>
+        <div class="prof-order-list">
+            <table>
+                <thead>
+                    <td>Title</td>
+                    <td>Author(s) Name(s)</td>
+                    <td>Edition</td>
+                    <td>Publisher</td>
+                    <td>ISBN</td>
+                    <td>Quantity Ordered</td>
+                    <td>Class</td>
+                    <td>Semester</td>
+                </thead>
         <?php  // PHP To populate the list of books not sure if this php would work
             $sql= "SELECT title, author, edition, publisher, ISBN, book_qty, class, semester FROM books";
             $data = mysqli_query($link, $sql);
@@ -56,13 +57,14 @@ include_once "config.php"
                     <td><?php echo $row['book_qty']; ?></td>
                     <td><?php echo $row['class']; ?></td>
                     <td><?php echo $row['semester']; ?></td>
-                    <td><a href="editBookReq.php?order_id=<?php echo $row['order_id']; ?>">Edit</a></td>
-                    <td><a href="deleteBookReq.php?order_id=<?php echo $row['order_id']; ?>">Delete</a></td>
+                    <td><a href="editBookReq.php?id=<?php echo $row['order_id']; ?>">Edit</a></td>
+                    <td><a href="deleteBookReq.php?id=<?php echo $row['order_id']; ?>">Delete</a></td>
                 </tr>
             <?php
             }
             ?>
-        </table>
+            </table>
+        </div>
     </div>
     <script>
         function openNav() {

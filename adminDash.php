@@ -50,7 +50,7 @@
 		<dd>Takes you to a page that has all the books requests, which includes the title, author's name, edition, publisher, ISBN, and ammount ordered.</dd>
         <dt><a href="pickSemester.php">Create Final Book Request</a></dt>
 		<dd>Allows you to create a final book request</dd>
-        <dt><a href="resetPass.php">Change Password</a></dt>
+        <dt><a href="changePass.php">Change Password</a></dt>
 		<dd>Lets you change your password if need be.</dd>
         <dt><a href="logoutPage.php">Log-Out</a></dt>
 		<dd>Logs you out of the system.</dd>
