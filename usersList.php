@@ -22,13 +22,8 @@ include_once "config.php"
             <a href="deleteUsers.php">Delete an existing account </a>
             <a href="register.php">Create a new account </a>
             <a href="invEmail.php">Send invitation email </a>
-<<<<<<< HEAD
-            <a href="adminOrder.php">View list of book requests</a>
-            <a href="pickSemester.php">Create Final Book Request</a>
-=======
             <a href="adminOrders.php">View list of book requests</a>
-            <a href="adminReq.php">Create Final Book Request</a>
->>>>>>> d01edb27fb01ce1bc5963b8f1220fe22c33f2236
+            <a href="pickSemester.php">Create Final Book Request</a>
             <a href="changePass.php">Change Password</a>
             <a href="logoutPage.php">Log-Out</a>
         </div>
