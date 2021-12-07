@@ -1,5 +1,5 @@
 <?php
-// Don't believe we need any php.
+include_once "config.php"
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
             <a class="active-nav" href="profDash.php">Home</a> <!-- Home button-->
             <a href="bookRequest.php">New Book Order </a>
             <a href="openOrder.php">View/Edit Open Order</a>
-            <a href="resetPass.php">Change Password</a>
+            <a href="changePass.php">Change Password</a>
             <a href="logoutPage.php">Log-Out</a>
         </div>
 
@@ -33,7 +33,7 @@
 		<dd>Takes you to the page where you can create a new book order</dd>
         <dt><a href="openOrder.php">View/Edit Open Order</a></dt>
 		<dd>Allows you to review and edit book requests forms that haven't been completed yet.</dd>
-        <dt><a href="resetPass.php">Change Password</a></dt>
+        <dt><a href="changePass.php?id=<?php echo $row['username']; ?>">Change Password</a></dt>
 		<dd>Lets you change your password if need be.</dd>
         <dt><a href="logoutPage.php">Log-Out</a></dt>
 		<dd>Logs you out of the system.</dd>

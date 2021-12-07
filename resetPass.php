@@ -13,7 +13,7 @@ if(isset($_POST['submit'])) {
             $to = $email;
             $subject = "Password";
             $txt = "Your password is : $password.";
-            $headers = "From: bookstore@UCFstore.com";
+            $headers = "From: bookstore@ucf.edu";
             mail($to,$subject,$txt,$headers);
         } else {
             echo "Invalid username";

@@ -1,16 +1,25 @@
-<!-- Changing user's password-->
 <?php
 require_once "config.php";
 // Getting the password of the user from database and changing it.
 $username = $_GET['username'];
-$result = mysqli_query($link, "select * from users where username='$username'");
-$row = mysqli_fetch_array($result);
-if($_POST["newPassword"] == $row["confirmPassword"]) {
-    mysqli_query($link, "update users set password ='" . $_POST["newPassword"] . "' where username='$username'");
-    $message = "Password Changed Successfully";
-    header("location: adminDash.php"); exit;
-} else {
-    $message = "Password is not correct";
+if(isset($_POST['update'])) {
+    $result = mysqli_query($link, "select * from users where username='$username'");
+    $row = mysqli_fetch_array($result);
+    $newPassword = $_POST["newPassword"];
+    $confirmPassword = $_POST["confirmPassword"];
+
+    $sql = "update users set password = '$newPassword' where username='$username'";
+
+    if($stmt = mysqli_prepare($link, $sql)){
+        // Bind variables to the prepared statement as parameters
+        if(mysqli_stmt_execute($stmt)){
+            // Redirect to userslist page
+            header("location: profDash.php"); exit;
+        } else{
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+        mysqli_stmt_close($stmt);
+    }
 }
 ?>
 
@@ -25,9 +34,9 @@ if($_POST["newPassword"] == $row["confirmPassword"]) {
         <div><?php if(isset($message)) { echo $message; } ?></div>
         <form method="POST">
             <p>New Password:</p>
-            <input type="text" name="newPassword"><span id="newPassword" class="required"></span>
+            <input type="text" name="newPassword" value="<?php echo $data['newPassword'] ?>" id="newPassword" class="required">
             <p>Confirm Password:</p>
-            <input type="text" name="confirmPassword"><span id="confirmPassword" class="required"></span>
+            <input type="text" name="confirmPassword" value="<?php echo $data['confirmPassword'] ?>" id="confirmPassword" class="required">
             <input type="submit" name="update" value="Update">
         </form>
     </body>
