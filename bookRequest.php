@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ISBN_err = "ISBN can only contain numbers.";
     } else {
 
-        $sql='INSERT INTO books(title, author, edition, publisher, ISBN, book_qty, order_num, class) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ';
+        $sql="INSERT INTO books(title, author, edition, publisher, ISBN, book_qty, order_num, class) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
