@@ -43,8 +43,10 @@ if(isset($_POST['submit'])) {
 <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <head></head>
-    <body>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body class="changePass">
         <h1>Change Password</h1>
         <form action = '' method="POST">
             <p>Username:</p>

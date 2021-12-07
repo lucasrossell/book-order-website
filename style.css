@@ -400,3 +400,17 @@ input::-webkit-inner-spin-button{
 }
 
  .inviteBody tr:nth-child(even) {background-color: #f2f2f200;}
+
+  /* ChangePass */
+  .changePass{
+	margin: 20px;
+	font-family:"Roboto", sans-serif;
+	background-image:url(images/dashBackground.jpg);
+	background-size:cover;
+}
+.changePass td{
+	padding: 15px;
+	text-align:left;
+}
+
+ .changePass tr:nth-child(even) {background-color: #f2f2f200;}
