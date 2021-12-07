@@ -2,31 +2,26 @@
 require_once "config.php";
 
 if(isset($_POST['submit'])) {
-    $username = $_POST['username'];
-    $sql = "select username, userEmail from users where username = '$username'";
-    if ($result = mysqli_query($link, $sql)) {
-        $row = mysqli_fetch_assoc($result);
-        $fetch_user_id=$row['username'];
+    $body = $_POST['body'];
+    $subject = $_POST['subject'];
+    $headers = "From: bookstore@ucf.edu";
+    $subject = "Temporary Password - UCF Books";
+    $body = "Your temporary password is : $tempPass. If you did not request this temporary password email, you may want to log in and change your password for security reasons.";
+
+    $data = mysqli_query($link, $sql);
+    $row = mysqli_fetch_assoc($data);
+    $fetch_user_id=$row['username'];
+    if ($recipient == $fetch_user_id) {
         $email=$row['userEmail'];
-        $tempPass = substr(md5(uniqid(rand(),1)),3,10);
-        if($username==$fetch_user_id) {
-            $to = $email;
-            $subject = "Temporary Password - UCF Books";
-            $txt = "Your temporary password is : $tempPass.";
-            $txt = "If you did not request this temporary password email, no action is needed.";
-            $txt = "However, you may want to log in and change your password for security reasons.";
-            $txt = "You can login here: loginPage.php";
-            $headers = "From: tempPass@ucf.com";
-            mail($to,$subject,$txt,$headers);
-        } else {
-            echo "Invalid username";
-        }
+        $to = $email;
+        mail($to,$subject,$body,$headers);
+        echo "Mail sent."; exit;
     }
-    header("location:loginPage.php"); exit;
+    else {
+        echo "Invalid username.";
+    }
 }
-if(isset($_POST['cancel'])) {
-    header("location: profDash.php"); exit;
-}
+header("location:loginPage.php"); exit;
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +38,6 @@ if(isset($_POST['cancel'])) {
             <input type="text" name="username">
             <br><br>
             <input type="submit" name="submit" value="Submit">
-            <input type="submit" name="cancel" value="Cancel">
         </form>
     </body>
 </html>
