@@ -177,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </select>
                         </div>
                     </div>
-                    <input id="sub-click" type="submit" name="Submit" value="Submit"><br/>
+                    <input id="order-submit" class="order-info" type="submit" name="submit" value="Submit"><br/>
                 </form>
             </div>
         </div>
