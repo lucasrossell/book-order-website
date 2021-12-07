@@ -8,6 +8,7 @@ require_once "config.php";
 // Define variables and initialize with empty values
 $title = $author = $edition = $publisher = $ISBN = $book_qty = $class = "";
 $title_err = $author_err = $edition_err = $publisher_err = $ISBN_err = $book_qty_err = $class_err ="";
+$semester = "Fall21"
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -52,6 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $class = trim($_POST["class"]);
     }
+
+    $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
     
     // Validate ISBN
     if(empty(trim($_POST["ISBN"]))){
@@ -59,9 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif(!preg_match('/^[0-9]+$/', trim($_POST["ISBN"]))){
         $ISBN_err = "ISBN can only contain numbers.";
     } else {
-        // Prepare a select statement
-//        $sql = "SELECT ISBN FROM books WHERE ISBN = ?";
-        $sql='INSERT INTO books(title, author, edition, publisher, ISBN, book_qty, order_num, class) VALUES (?, ?, ?, ?, ?, ?, ?, ?) ';
+
+        $sql="INSERT INTO books(title, author, edition, publisher, ISBN, book_qty, order_num, class) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -161,6 +163,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <p>Class For Which Books Will Be Ordered For</p>
                         <input id="class-book" type="text" name="class" placeholder="Enter the Course Code" required>
 
+                        <p>Choose a semester</p>
+                        <div>
+                            <label for="semester">Semester:</label>
+                            <select name="semester" id="semester">
+                                <option value="">--- Choose a type ---</option>
+                                <option value="fall21" selected>Fall 2021</option>
+                                <option value="spring22">Spring 2022</option>
+                                <option value="summer22">Summer 2022</option>
+                            </select>
+                        </div>
                     </div>
                     <input id="order-submit" class="order-info" type="submit" name="" value="Submit"><br/>
                 </form>
