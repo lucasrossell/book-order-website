@@ -2,8 +2,8 @@
 include_once "config.php";
 session_start();
 
-if(isset($_POST['reset'])) {
-    header("location: resetPass.php"); exit;
+if(isset($_POST['change'])) {
+    header("location: profchangePass.php"); exit;
 }
 
 if(isset($_POST['logout'])) {
@@ -25,7 +25,7 @@ if(isset($_POST['logout'])) {
             <a class="active-nav" href="profDash.php">Home</a> <!-- Home button-->
             <a href="bookRequest.php">New Book Order </a>
             <a href="openOrder.php">View/Edit Open Order</a>
-            <a href="resetPass.php">Reset Password</a>
+            <a href="profchangePass.php">Change Password</a>
             <a href="logoutPage.php">Log-Out</a>
         </div>
 
@@ -44,7 +44,7 @@ if(isset($_POST['logout'])) {
 		<dd>Allows you to review and edit book requests forms that haven't been completed yet.</dd>
 		</dl>
         <form method="POST">
-            <input type="submit" name="reset" value="Reset Password">
+            <input type="submit" name="change" value="Change Password">
             <input type="submit" name="logout" value="Logout">
         </form>
 		</div>
