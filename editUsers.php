@@ -30,7 +30,7 @@ if(isset($_POST['cancel'])) {
     <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <head>Edit Book Request</head>
+    <head>Edit User</head>
     <body>
         <form method="POST">
             <p>FullName:</p>
