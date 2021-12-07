@@ -3,7 +3,7 @@ require_once "config.php";
 
 // Fetching data from database 
 $order_id = $_GET['order_id'];
-$qry = mysqli_query($db, "select * from books where order_id='$order_id'");
+$qry = mysqli_query($link, "select * from books where order_id='$order_id'");
 $data = mysqli_fetch_array($qry);
 
 // Once update button is clicked, update
