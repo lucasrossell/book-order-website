@@ -1,6 +1,6 @@
 <!-- This is where admins can view the list of open orders -->
 <?php
-include_once "config.php"
+include_once "config.php";
 ?>
 
 <!DOCTYPE html>
