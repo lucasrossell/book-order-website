@@ -1,5 +1,14 @@
 <?php
+session_start();
+$currentuser = $_SESSION['username'];
 require_once "config.php";
+
+$admincheck = "SELECT * from users where username='$currentuser'";
+if(mysqli_query($link, $admincheck)){
+    $admin = True;
+} else {
+    $admin = False;
+}
 
 if(isset($_POST['cancel'])) {
     header("location: adminDash.php"); exit;
@@ -7,17 +16,25 @@ if(isset($_POST['cancel'])) {
 
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $sql = "select * from users where username = '$username'";
-    $newPassword = $_POST["newPassword"];
-    $confirmPassword = $_POST["confirmPassword"];
-    $edit = mysqli_query($link, "update users set password = '$newPassword' where username='$username'");
-    if($edit) {
-        mysqli_close($link);
-        echo "Password changed successfully.";
-        header("location: adminDash.php"); 
-        exit;
-    } else {
-        echo mysqli_error($link);
+    if (($username == $currentuser) or $admin) {
+        $sql = "select * from users where username = '$username'";
+        $newPassword = $_POST["newPassword"];
+        $confirmPassword = $_POST["confirmPassword"];
+        if ($newPassword != $confirmPassword) {
+            echo "Passwords not the same";
+        }
+        else {
+            $edit = mysqli_query($link, "update users set password = '$newPassword' where username='$username'");
+            if($edit) {
+                mysqli_close($link);
+            } else {
+                echo mysqli_error($link); exit;
+            }
+            echo "Password changed successfully.";
+        }
+    }
+    else {
+        echo "You do not have access to this user.";
     }
 }
 ?>

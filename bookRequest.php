@@ -85,14 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_user = $_SESSION["username"];
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                /* store result */
-                mysqli_stmt_store_result($stmt);
-
-                if(mysqli_stmt_num_rows($stmt) == 1){
-                    $ISBN_err = "This ISBN is already in your book request.";
-                } else {
-                    $ISBN = trim($_POST["ISBN"]);
-                }
+                /* success */
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
@@ -106,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Redirect to dashboard once submit is clicked.
     if(isset($_POST['submit'])) {
-        header("location: profDash.php");
+        header("location: openOrder.php");
         exit;
     }
 }
