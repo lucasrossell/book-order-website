@@ -29,6 +29,7 @@ require_once "config.php";
 
     <div id="main" class="dash-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Admin's Dashboard</span>
+        <br>
         <h2>Pick a semester that you'd like the final book request for.</h2>
             <div>
                 <label for="semester">Semester:</label>
