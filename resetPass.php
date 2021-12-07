@@ -3,17 +3,20 @@ require_once "config.php";
 
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $sql = "select * from users where username = '$username'";
+    $sql = "select username, userEmail from users where username = '$username'";
     if ($result = mysqli_query($link, $sql)) {
         $row = mysqli_fetch_assoc($result);
         $fetch_user_id=$row['username'];
         $email=$row['userEmail'];
-        $password=$row['password'];
+        $tempPass = substr(md5(uniqid(rand(),1)),3,10);
         if($username==$fetch_user_id) {
             $to = $email;
-            $subject = "Password";
-            $txt = "Your password is : $password.";
-            $headers = "From: bookstore@ucf.edu";
+            $subject = "Temporary Password - UCF Books";
+            $txt = "Your temporary password is : $tempPass.";
+            $txt = "If you did not request this temporary password email, no action is needed.";
+            $txt = "However, you may want to log in and change your password for security reasons.";
+            $txt = "You can login here: loginPage.php";
+            $headers = "From: tempPass@ucf.com";
             mail($to,$subject,$txt,$headers);
         } else {
             echo "Invalid username";
@@ -35,12 +38,12 @@ if(isset($_POST['cancel'])) {
     </head>
     <body>
         <h1>Reset Password</h1>
-        <form action='' method='post'>
-            <table>
-                <tr><td>username:</td><td><input type='text' name='username'/></td></tr>
-                <tr><td></td><td><input type='submit' name='submit' value='Submit'/></td></tr>
-                <tr><td></td><td><input type="submit" name="cancel" value="Cancel"/></td></tr>
-            </table>
+        <form action = '' method="POST">
+            <p>Username:</p>
+            <input type="text" name="username">
+            <br><br>
+            <input type="submit" name="submit" value="Submit">
+            <input type="submit" name="cancel" value="Cancel">
         </form>
     </body>
 </html>
