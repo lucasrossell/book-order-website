@@ -84,9 +84,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate type
     if(empty(trim($_POST["type"]))){
-        $email_err = "Please confirm type.";
+        $type_err = "Please confirm type.";
     } else{
-        $userEmail = trim($_POST["type"]);
+        $type = trim($_POST["type"]);
     }
 
     // Check input errors before inserting in database
