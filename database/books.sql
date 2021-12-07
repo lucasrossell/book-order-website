@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `publisher` varchar(50) NOT NULL,
   `book_qty` varchar(50) NOT NULL,
   `order_id` integer(50) NOT NULL AUTO_INCREMENT,
-  `ISBN` varchar(15) NOT NULL UNIQUE,
+  `ISBN` varchar(15) NOT NULL,
   `class` varchar(30) NOT NULL,
   `semester` varchar(30) NOT NULL,
   `username` varchar(24) NOT NULL,

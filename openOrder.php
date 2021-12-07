@@ -2,6 +2,12 @@
 session_start();
 include_once "config.php";
 $username = $_SESSION['username'];
+
+
+if(isset($_POST['deleteAll'])) {
+    $sql= "DELETE FROM books where username = '$username'";
+    mysqli_query($link, $sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -62,6 +68,14 @@ $username = $_SESSION['username'];
             </table>
         </div>
     </div>
+    <div>
+        <form action = '' method="POST">
+            <button type="deleteAll" name="deleteAll" value="deleteAll">Delete All Book Orders</button>
+        </form>
+        
+    </div>
+
+
     <script>
         function openNav() {
             document.getElementById("sidebar-nav").style.width = "250px";

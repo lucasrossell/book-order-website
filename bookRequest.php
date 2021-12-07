@@ -94,7 +94,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $ISBN = trim($_POST["ISBN"]);
                 }
             } else {
-                echo $stmt;
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
