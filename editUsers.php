@@ -1,7 +1,7 @@
 <?php
 require_once "config.php";
 
-// Fetching data from database
+// Fetching data from URL
 $username = $_GET['id'];
 
 // Once update button is clicked, update

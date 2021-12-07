@@ -6,9 +6,8 @@
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$title = $author = $edition = $publisher = $ISBN = $book_qty = $class = "";
+$title = $author = $edition = $publisher = $ISBN = $book_qty = $class = $semester = "";
 $title_err = $author_err = $edition_err = $publisher_err = $ISBN_err = $book_qty_err = $class_err ="";
-$semester = "Fall 2021";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

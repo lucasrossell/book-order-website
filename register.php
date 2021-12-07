@@ -82,7 +82,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $userEmail = trim($_POST["userEmail"]);
     }
 
-    $type = filter_input(INPUT_POST, 'type', FILTER_SANITIZE_STRING);
+    // Validate type
+    if(empty(trim($_POST["type"]))){
+        $type_err = "Please confirm type.";
+    } else{
+        $type = trim($_POST["type"]);
+    }
 
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($fullName_err) && empty($email_err)){

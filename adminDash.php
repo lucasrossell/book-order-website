@@ -21,7 +21,7 @@
         <a href="register.php">Create a new account </a>
         <a href="invEmail.php">Send invitation email </a>
         <a href="adminOrders.php">View list of book requests</a>
-        <a href="adminReq.php">Create Final Book Request</a>
+        <a href="pickSemester.php">Create Final Book Request</a>
         <a href="changePass.php">Change Password</a>
         <a href="logoutPage.php">Log-Out</a>
     </div>
@@ -47,7 +47,7 @@
 		<dd>Allows you to send an email to a new member so they can register to create book requests.</dd>
         <dt><a href="adminOrders.php">View list of book requests</a></dt>
 		<dd>Takes you to a page that has all the books requests, which includes the title, author's name, edition, publisher, ISBN, and ammount ordered.</dd>
-        <dt><a href="adminReq.php">Create Final Book Request</a></dt>
+        <dt><a href="pickSemester.php">Create Final Book Request</a></dt>
 		<dd>Allows you to create a final book request</dd>
         <dt><a href="resetPass.php">Change Password</a></dt>
 		<dd>Lets you change your password if need be.</dd>
