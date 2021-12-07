@@ -1,7 +1,7 @@
-<!-- This is the dashboard where professors can choose to create a new book order or they can choose to edit a book order or delete a book order -->
 <?php
-// Don't believe we need any php.
-include_once "config.php"
+session_start();
+include_once "config.php";
+$username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ include_once "config.php"
                     <td>Delete</td>
             </thead>
         <?php  // PHP To populate the list of books not sure if this php would work
-            $sql= "SELECT order_id, title, author, edition, publisher, ISBN, book_qty, class, semester FROM books";
+            $sql= "SELECT order_id, title, author, edition, publisher, ISBN, book_qty, class, semester FROM books where username = '$username'";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {
             ?>
