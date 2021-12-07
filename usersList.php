@@ -51,8 +51,8 @@ include_once "config.php"
                             <td><?php echo $row['username']; ?></td>
                             <td><?php echo $row['fullName']; ?></td>
                             <td><?php echo $row['userEmail']; ?></td>
-                            <td><a href="editUsers.php?id=<?php echo $row['username']; ?>">Edit</a></td>
-                            <td><a href="deleteUsers.php?id=<?php echo $row['username']; ?>">Delete</a></td>
+                            <td><a href="editUsers.php?username=<?php echo $row['username']; ?>">Edit</a></td>
+                            <td><a href="deleteUsers.php?username=<?php echo $row['username']; ?>">Delete</a></td>
                         </tr>
                     <?php
                     }
