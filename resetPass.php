@@ -3,8 +3,9 @@ require_once "config.php";
 
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
-    $result = mysqli_query($conn, "SELECT * FROM users where user_id='" . $POST['username'] . "'");
-    $row = mysqli_fetch_assoc($result);
+    $sql = "select * from users where username = '$username'";
+    if ($result = mysqli_query($link, $sql)) {
+        $row = mysqli_fetch_assoc($result);
         $fetch_user_id=$row['username'];
         $email=$row['userEmail'];
         $password=$row['password'];
@@ -17,7 +18,8 @@ if(isset($_POST['submit'])) {
         } else {
             echo "Invalid username";
         }
-    header("location:loginPage.php")
+    }
+    header("location:loginPage.php"); exit;
 }
 ?>
 
@@ -38,4 +40,3 @@ if(isset($_POST['submit'])) {
         </form>
     </body>
 </html>
-
