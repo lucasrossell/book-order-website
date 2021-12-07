@@ -457,3 +457,17 @@ input::-webkit-inner-spin-button{
  }
  
  .editReq tr:nth-child(even) {background-color: #f2f2f200;}
+ 
+ /* profChange */
+ .profChange{
+	margin: 20px;
+	font-family:"Roboto", sans-serif;
+	background-image:url(images/dashBackground.jpg);
+	background-size:cover;
+ }
+ .profChange td{
+	padding: 15px;
+	text-align:left;
+ }
+ 
+ .profChange tr:nth-child(even) {background-color: #f2f2f200;}
