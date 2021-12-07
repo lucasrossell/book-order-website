@@ -2,29 +2,52 @@
 <?php
 require_once "config.php";
 
-function secure_email($field) {
-    // sanitize email removes illegal characters
-    $field = filter_var($field, FILTER_SANITIZE_EMAIL);
-    // filter validate validates the email and returns true if valid
-    if (filter_var($field, FILTER_VALIDATE_EMAIL)) {
-        return true;
-    } else {
-        return false;
+if(isset($_POST['submit'])) {
+    $recipient = $_POST['username'];
+    $sql= "SELECT username, fullName, userEmail FROM users where username = '$recipient'";
+    $body = $_POST['body'];
+    $subject = $_POST['subject'];
+    $headers = "From: bookstore@ucf.edu";
+    
+    if ($subject == "") {
+        $subject = "Reminder from UCF book store";
+    }
+    if ($body == "") {
+        $body = "The deadline for book orders for the upcoming semester is approaching soon!";
+    }
+
+    $data = mysqli_query($link, $sql);
+    $row = mysqli_fetch_assoc($data);
+    $fetch_user_id=$row['username'];
+    if ($recipient == $fetch_user_id) {
+        $email=$row['userEmail'];
+        $to = $email;
+        mail($to,$subject,$body,$headers);
+        echo "Mail sent."; exit;
+    }
+    else {
+        echo "Invalid username.";
     }
 }
-
-// change email to to....??????
-$email_to = 'Professor at UCF';
-$subject = 'Book Request Update';
-// might need to update url to book website
-$message = 'This is a friendly email reminder to request your book information. Need to login? Login here: loginPage.php!';
-$headers = "From: bookstore@ucf.edu";
-// here we check if the email address is invalid using secure check
-$secure_check = secure_email($to_email);
-if ($secure_email == false) {
-    echo "Invalid Input";
-} else {
-    mail($to_email, $subject, $message, $headers);
-    echo "This email has been sent.";
-}
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Broadcast Email</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Broadcast Email</h1>
+        <form action='' method='post'>
+            <table>
+                <tr><td>Enter username of recipient:</td><td><input type='text' name='username'/></td></tr>
+                <tr><td>Enter email subject:</td><td><input type='text' name='subject'/></td></tr>
+                <tr><td>Enter email body text:</td><td><input type='text' name='body'/></td></tr>
+                <tr><td></td><td><input type='submit' name='submit' value='Submit'/></td></tr>
+            </table>
+        </form>
+    </body>
+</html>
+
