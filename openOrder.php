@@ -23,7 +23,7 @@ include_once "config.php"
         </div>
 
     <div id="main" class="dash-content">
-        <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Prof's Dashboard</span>
+        <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Prof's Dashboard</span><br>
         <h2>Open order available. Here is the information on the Book(s) Ordered:</h2>
         <table class="prof-order-list">
             <tr>
@@ -35,6 +35,8 @@ include_once "config.php"
                 <th>Quantity Ordered</th>
                 <th>Class</th>
                 <th>Semester</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         <?php  // PHP To populate the list of books not sure if this php would work
             $sql= "SELECT title, author, edition, publisher, ISBN, book_qty, class, semester FROM books";
@@ -50,8 +52,8 @@ include_once "config.php"
                     <td><?php echo $row['book_qty']; ?></td>
                     <td><?php echo $row['class']; ?></td>
                     <td><?php echo $row['semester']; ?></td>
-                    <td><a href="editBookReq.php?id=<?php echo $data['order_id']; ?>">Edit</a></td>
-                    <td><a href="deleteBookReq.php?id=<?php echo $data['order_id']; ?>">Delete</a></td>
+                    <td><a href="editBookReq.php?id=<?php echo $row['order_id']; ?>">Edit</a></td>
+                    <td><a href="deleteBookReq.php?id=<?php echo $row['order_id']; ?>">Delete</a></td>
                 </tr>
             <?php
             }
