@@ -413,6 +413,14 @@ input::-webkit-inner-spin-button{
 	text-align:left;
 }
 
+.changePass input[type="password"], input[type="text"]{
+	border:1px;
+	background:#fff;
+	height:20px;
+	color: #000;
+	font-size:16px;
+}
+
  .changePass tr:nth-child(even) {background-color: #f2f2f200;}
 
  

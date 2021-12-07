@@ -52,9 +52,9 @@ if(isset($_POST['submit'])) {
             <p>Username:</p>
             <input type="text" name="username">
             <p>New Password:</p>
-            <input type="text" name="newPassword">
+            <input type="password" name="newPassword">
             <p>Confirm Password:</p>
-            <input type="text" name="confirmPassword">
+            <input type="password" name="confirmPassword">
             <br><br>
             <input type="submit" name="submit" value="Submit">
             <input type="submit" name="cancel" value="Cancel">
