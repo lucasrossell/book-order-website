@@ -16,6 +16,7 @@ if(isset($_POST['submit'])) {
         $email=$row['userEmail'];
         $to = $email;
         mail($to,$subject,$body,$headers);
+        mysqli_close($link);
         header("location:loginPage.php"); exit;
     } else {
         echo "Invalid username.";
