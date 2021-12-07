@@ -34,7 +34,7 @@ require_once "config.php";
             <div>
                 <label for="semester">Semester:</label>
                 <select name="semester" id="semester">
-                    <option value="">--- Choose a type ---</option>
+                    <option value="">--- Choose a Semester ---</option>
                     <option value="fall21" selected>Fall 2021</option>
                     <option value="spring22">Spring 2022</option>
                     <option value="summer22">Summer 2022</option>
