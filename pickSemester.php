@@ -1,6 +1,13 @@
-<!-- Create a final list of book requests -->
 <?php
 require_once "config.php";
+if(isset($_POST['submit'])) {
+    $semester = ($_POST['semester']);
+    $semester = urldecode(trim($semester));
+    $semester = str_ireplace("%27", "", $semester);
+    $link = "location:adminReq.php?value=";
+    $link .= $semester;
+    header($link); exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,21 +39,20 @@ require_once "config.php";
         <br>
         <h2>Pick a semester that you'd like the final book request for.</h2>
             <div>
+            <form action = '' method="POST">
                 <label for="semester">Semester:</label>
-                <select name="semester" id="semester">
+                <select name="semester" id="semester" action="post">
                     <?php
                         $qry = mysqli_query($link, "SELECT DISTINCT semester from BOOKS" );
-                        $data = mysqli_fetch_array($qry);
-                        while( $data > 0){
+                        while($data = mysqli_fetch_array($qry)){
                     ?>
                     <option value="">--- Choose a Semester ---</option>
-                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option>
-                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option>
                     <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option>
                     <?php }?>
                 </select>
             </div>
-        <a href="adminReq.php?value=<?php echo $data['semester']; ?>">Submit</a>
+            <input type="submit" name="submit" value="Submit">
+                        </form>
     </div>
     <script>
         function openNav() {
