@@ -8,7 +8,7 @@ require_once "config.php";
 // Define variables and initialize with empty values
 $title = $author = $edition = $publisher = $ISBN = $book_qty = $class = "";
 $title_err = $author_err = $edition_err = $publisher_err = $ISBN_err = $book_qty_err = $class_err ="";
-$semester = "Fall21"
+$semester = "Fall 2021";
 
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -54,7 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $class = trim($_POST["class"]);
     }
 
-    $semester = filter_input(INPUT_POST, 'semester', FILTER_SANITIZE_STRING);
+    // Validate quantity of books
+    if(empty(trim($_POST["semester"]))){
+        $semester_err = "Must insert semester in format `Semester Year` like `Fall 2021`.";
+    } else {
+        $semester = trim($_POST["semester"]);
+    }
     
     // Validate ISBN
     if(empty(trim($_POST["ISBN"]))){
@@ -63,23 +68,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ISBN_err = "ISBN can only contain numbers.";
     } else {
 
-        $sql="INSERT INTO books(title, author, edition, publisher, ISBN, book_qty, order_num, class) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql="INSERT INTO books(title, author, edition, publisher, book_qty, order_id, ISBN, class, semester) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssssssis", $param_title, $param_author, $param_ed, $param_pub, $param_ISBN, $param_qty, $param_ord_num, $param_class);
+            mysqli_stmt_bind_param($stmt, "sssssssss", $param_title, $param_author, $param_ed, $param_pub, $param_qty, $param_ord_id, $param_ISBN, $param_class, $param_sem);
 
             // Set parameters
             $param_title = trim($_POST["title"]);
             $param_author = trim($_POST["author"]);
             $param_ed = trim($_POST["edition"]);
             $param_pub = trim($_POST["publisher"]);
-            $param_ISBN = trim($_POST["ISBN"]);
             $param_qty = trim($_POST["book_qty"]);
+            $param_ord_id = NULL;
+            $param_ISBN = trim($_POST["ISBN"]);
             $param_class = trim($_POST["class"]);
-            $param_ord_num = str_pad(mt_rand(1, 99999), 5, '0', STR_PAD_LEFT);
-            //$param_ord_num = rand(0,100); // Change this to generate unique number?
-
+            $param_sem = trim($_POST["semester"]);
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 /* store result */
