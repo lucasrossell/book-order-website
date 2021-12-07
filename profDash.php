@@ -1,5 +1,13 @@
-<?php
-include_once "config.php"
+<?php 
+include_once "config.php";
+
+if(isset($_POST['reset'])) {
+    header("location: resetPass.php"); exit;
+}
+
+if(isset($_POST['logout'])) {
+    header("location: logoutPage.php"); exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,16 +36,16 @@ include_once "config.php"
        <div class="adminList">
 		<dl>
 		<dt><a class="active-nav" href="profDash.php">Home</a></dt>
-		<dd>Takes you back to your home page, which is this dashboard.</dd>
+		<dd>Takes you back to your home page, which is this dashboard.</dd><br>
 		<dt><a href="bookRequest.php">New Book Order </a></dt>
-		<dd>Takes you to the page where you can create a new book order</dd>
+		<dd>Takes you to the page where you can create a new book order</dd><br>
         <dt><a href="openOrder.php">View/Edit Open Order</a></dt>
 		<dd>Allows you to review and edit book requests forms that haven't been completed yet.</dd>
-        <dt><a href="resetPass.php?">Reset Password</a></dt>
-		<dd>Lets you reset your password if need be.</dd>
-        <dt><a href="logoutPage.php">Log-Out</a></dt>
-		<dd>Logs you out of the system.</dd>
 		</dl>
+        <form method="POST">
+            <input type="submit" name="reset" value="Reset Password">
+            <input type="submit" name="logout" value="Logout">
+        </form>
 		</div>
 
     </div>

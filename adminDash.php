@@ -1,5 +1,13 @@
 <?php 
-// Don't believe we need any php.
+include_once "config.php";
+
+if(isset($_POST['change'])) {
+    header("location: changePass.php"); exit;
+}
+
+if(isset($_POST['logout'])) {
+    header("location: logoutPage.php"); exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,26 +43,26 @@
 		<div class="adminList">
 		<dl>
 		<dt><a class="active-nav" href="adminDash.php">Home</a></dt>
-		<dd>Takes you back to your home page, which is this dashboard.</dd>
+		<dd>Takes you back to your home page, which is this dashboard.</dd><br>
 		<dt><a href="usersList.php">View faculty database </a></dt>
-		<dd>Allows you to view every faculty members username, name, and email address. From here you can also edit each memeber or delete them.</dd>
+		<dd>Allows you to view every faculty members username, name, and email address. From here you can also edit each memeber or delete them.</dd><br>
 		<dt><a href="deadlineEmail.php">Broadcast an email for deadlines </a></dt>
-		<dd>Sends out an email to every member notifing them of the deadline to place a book order request.</dd>
+		<dd>Sends out an email to every member notifing them of the deadline to place a book order request.</dd><br>
         <dt><a href="deleteUsers.php">Delete an existing account </a></dt>
-		<dd>Takes you to a page where you are able to delete an existing members account.</dd>
+		<dd>Takes you to a page where you are able to delete an existing members account.</dd><br>
         <dt><a href="register.php">Create a new account </a></dt>
-		<dd>Allows you to create a account for a new member.</dd>
+		<dd>Allows you to create a account for a new member.</dd><br>
         <dt><a href="invEmail.php">Send invitation email </a></dt>
-		<dd>Allows you to send an email to a new member so they can register to create book requests.</dd>
+		<dd>Allows you to send an email to a new member so they can register to create book requests.</dd><br>
         <dt><a href="adminOrders.php">View list of book requests</a></dt>
-		<dd>Takes you to a page that has all the books requests, which includes the title, author's name, edition, publisher, ISBN, and ammount ordered.</dd>
+		<dd>Takes you to a page that has all the books requests, which includes the title, author's name, edition, publisher, ISBN, and ammount ordered.</dd><br>
         <dt><a href="pickSemester.php">Create Final Book Request</a></dt>
 		<dd>Allows you to create a final book request</dd>
-        <dt><a href="changePass.php">Change Password</a></dt>
-		<dd>Lets you change your password if need be.</dd>
-        <dt><a href="logoutPage.php">Log-Out</a></dt>
-		<dd>Logs you out of the system.</dd>
 		</dl>
+        <form method="POST">
+            <input type="submit" name="change" value="Change Password">
+            <input type="submit" name="logout" value="Logout">
+        </form>
 		</div>
 
     </div>

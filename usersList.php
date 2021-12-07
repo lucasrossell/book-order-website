@@ -54,13 +54,11 @@ include_once "config.php"
                             <td><a href="editUsers.php?username=<?php echo $row['username']; ?>">Edit</a></td>
                             <td><a href="deleteUsers.php?username=<?php echo $row['username']; ?>">Delete</a></td>
                         </tr>
-                    <?php
-                    }
-                    ?>
+                        <?php
+                        }
+                        ?>
                 </table>
-
             </div>
-
         </div>
         <script>
             function openNav() {
