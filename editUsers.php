@@ -30,16 +30,11 @@ if(isset($_POST['cancel'])) {
     <html lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-<<<<<<< HEAD
     <head>
         <link rel="stylesheet" type="text/css" href="style.css">
         Edit User
     </head>
     <body class="editUsers">
-=======
-    <head>Edit User</head>
-    <body>
->>>>>>> f5ffe955e1840d9a2e8fc21ce673852fc163d5b6
         <form method="POST">
             <p>FullName:</p>
             <input type="text" name="fullName" value="<?php echo $data['fullName'] ?>" placeholder="Enter Full Name" Required>
