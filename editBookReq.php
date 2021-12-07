@@ -15,14 +15,14 @@ if(isset($_POST['update'])) {
     $book_qty = $_POST['book_qty'];
     $ISBN = $_POST['ISBN'];
 
-    $edit = mysqli_query($db, "update books set title='$title', author='$author', edition='$edition', publisher='$publisher', book_qty='$book_qty', ISBN='$ISBN' where order_id='$order_id'");
+    $edit = mysqli_query($link, "update books set title='$title', author='$author', edition='$edition', publisher='$publisher', book_qty='$book_qty', ISBN='$ISBN' where order_id='$order_id'");
 
     if($edit) {
-        mysqli_close($db);
+        mysqli_close($link);
         header("location: openOrder.php"); 
         exit;
     } else {
-        echo mysqli_error();
+        echo mysqli_error($link);
     }
 }
 ?>

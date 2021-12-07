@@ -1,6 +1,7 @@
 <!-- This is the dashboard where professors can choose to create a new book order or they can choose to edit a book order or delete a book order -->
 <?php
 // Don't believe we need any php.
+include_once "config.php"
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +23,7 @@
         </div>
 
     <div id="main" class="dash-content">
-        <span id="menu-icon" style="font-size:30px;cursor:pointer position:absolute;" onclick="openNav()">&#9776;  Prof's Dashboard</span>
+        <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Prof's Dashboard</span>
         <h2>Open order available. Here is the information on the Book(s) Ordered:</h2>
         <table class="prof-order-list">
             <tr>
@@ -32,9 +33,11 @@
                 <th>Publisher</th>
                 <th>ISBN</th>
                 <th>Quantity Ordered</th>
+                <th>Class</th>
+                <th>Semester</th>
             </tr>
         <?php  // PHP To populate the list of books not sure if this php would work
-            $sql= "SELECT title, author, edition, publisher, ISBN, book_qty FROM books";
+            $sql= "SELECT title, author, edition, publisher, ISBN, book_qty, class, semester FROM books";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {
             ?>
@@ -45,6 +48,8 @@
                     <td><?php echo $row['publisher']; ?></td>
                     <td><?php echo $row['ISBN']; ?></td>
                     <td><?php echo $row['book_qty']; ?></td>
+                    <td><?php echo $row['class']; ?></td>
+                    <td><?php echo $row['semester']; ?></td>
                     <td><a href="editBookReq.php?id=<?php echo $data['order_id']; ?>">Edit</a></td>
                     <td><a href="deleteBookReq.php?id=<?php echo $data['order_id']; ?>">Delete</a></td>
                 </tr>

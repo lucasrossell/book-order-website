@@ -1,5 +1,6 @@
 <!-- This is where admins can view the list of open orders -->
 <?php
+include_once "config.php"
 ?>
 
 <!DOCTYPE html>
@@ -37,9 +38,11 @@
                 <th>Publisher</th>
                 <th>ISBN</th>
                 <th>Quantity Ordered</th>
+                <th>Class</th>
+                <th>Semester</th>
             </tr>
-        <?php  // PHP To populate the list of books
-            $sql= "SELECT title, author, edition, publisher, ISBN, book_qty FROM books";
+        <?php  // PHP To populate the list of books not sure if this php would work
+            $sql= "SELECT title, author, edition, publisher, ISBN, book_qty, class, semester FROM books";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {
             ?>
@@ -50,6 +53,8 @@
                     <td><?php echo $row['publisher']; ?></td>
                     <td><?php echo $row['ISBN']; ?></td>
                     <td><?php echo $row['book_qty']; ?></td>
+                    <td><?php echo $row['class']; ?></td>
+                    <td><?php echo $row['semester']; ?></td>
                     <td><a href="editBookReq.php?id=<?php echo $data['order_id']; ?>">Edit</a></td>
                     <td><a href="deleteBookReq.php?id=<?php echo $data['order_id']; ?>">Delete</a></td>
                 </tr>
