@@ -1,15 +1,16 @@
 <?php
 require_once "config.php";
-// Getting the password of the user from database and changing it.
-$username = $_GET['username'];
-$qry = mysqli_query($link, "select * from users where username='$username'");
-$data = mysqli_fetch_array($qry);
-if(isset($_POST['update'])) {
+
+if(isset($_POST['cancel'])) {
+    header("location: adminDash.php"); exit;
+}
+
+if(isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $sql = "select * from users where username = '$username'";
     $newPassword = $_POST["newPassword"];
     $confirmPassword = $_POST["confirmPassword"];
-
     $edit = mysqli_query($link, "update users set password = '$newPassword' where username='$username'");
-
     if($edit) {
         mysqli_close($link);
         echo "Password changed successfully.";
@@ -19,9 +20,6 @@ if(isset($_POST['update'])) {
         echo mysqli_error($link);
     }
 }
-if(isset($_POST['cancel'])) {
-    header("location: adminDash.php"); exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -30,13 +28,15 @@ if(isset($_POST['cancel'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <head>Change Password</head>
     <body>
-        <form method="POST">
+        <form action = '' method="POST">
+            <p>Username:</p>
+            <input type="text" name="username">
             <p>New Password:</p>
-            <input type="text" name="newPassword" value="<?php echo $data['newPassword'] ?>" placeholder="Enter New Password" Required>
+            <input type="text" name="newPassword">
             <p>Confirm Password:</p>
-            <input type="text" name="confirmPassword" value="<?php echo $data['confirmPassword'] ?>" placeholder="Confirm Password" Required>
+            <input type="text" name="confirmPassword">
             <br><br>
-            <input type="submit" name="update" value="Update">
+            <input type="submit" name="submit" value="Submit">
             <input type="submit" name="cancel" value="Cancel">
         </form>
     </body>
