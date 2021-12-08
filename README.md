@@ -1,14 +1,14 @@
-"# To get MySQL started"
+# To get MySQL started:
 - Windows: mysql -u root -p
 - macOS: /usr/local/mysql/bin/mysql -u root -p
 
-"# In VSCode"
+# In VSCode:
 - php -S localhost:8000
 
-"# In Brownser"
+# In Brownser:
 - localhost:8000/loginPage.php (can replace 'loginPage' with any page)
 
-"# Creating tables in database"
+# Creating tables in database:
 - show databases;
 - create database bookorderwebsite;
 - use bookorderwebsite;
