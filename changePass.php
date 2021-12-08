@@ -1,8 +1,10 @@
 <?php
+// Gather session details
 session_start();
 $currentuser = $_SESSION['username'];
 require_once "config.php";
 
+// Check if current user is an admin
 $admincheck = "SELECT * from users where username='$currentuser'";
 if(mysqli_query($link, $admincheck)){
     $admin = True;
@@ -10,11 +12,11 @@ if(mysqli_query($link, $admincheck)){
     $admin = False;
 }
 
-if(isset($_POST['cancel'])) {
+if(isset($_POST['cancel'])) { // Redirect to adminDash if cancel button is clicked
     header("location: adminDash.php"); exit;
 }
 
-if(isset($_POST['submit'])) {
+if(isset($_POST['submit'])) { // When submit button is clicked, change the corresponding password in the database for the username input into the textbox
     $username = $_POST['username'];
     if (($username == $currentuser) or $admin) {
         $sql = "select * from users where username = '$username'";
@@ -24,7 +26,7 @@ if(isset($_POST['submit'])) {
             echo "Passwords not the same";
         }
         else {
-            $edit = mysqli_query($link, "update users set password = '$newPassword' where username='$username'");
+            $edit = mysqli_query($link, "update users set password = '$newPassword' where username='$username'"); // Updating the values for the password in the database for the username input 
             if($edit) {
                 mysqli_close($link);
             } else {

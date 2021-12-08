@@ -1,7 +1,6 @@
 <?php
-//This section is currently broken; working on making this correctly interact with the mysql server.
+// Gather session details
 session_start();
-// Include config file
 require_once "config.php";
 
 // Define variables and initialize with empty values

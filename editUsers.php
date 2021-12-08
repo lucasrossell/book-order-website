@@ -6,12 +6,12 @@ $username = $_GET['username'];
 $qry = mysqli_query($link, "select * from users where username='$username'");
 $data = mysqli_fetch_array($qry);
 
-// Once update button is clicked, update
+// Once update button is clicked, update the information in database
 if(isset($_POST['update'])) {
     $fullName = $_POST['fullName'];
     $userEmail = $_POST['userEmail'];
 
-    $edit = mysqli_query($link, "update users set fullname='$fullName', userEmail='$userEmail' where username='$username'");
+    $edit = mysqli_query($link, "update users set fullname='$fullName', userEmail='$userEmail' where username='$username'"); // Updating the information in database
 
     if($edit) {
         mysqli_close($link);
@@ -21,7 +21,7 @@ if(isset($_POST['update'])) {
         echo mysqli_error($link);
     }
 }
-if(isset($_POST['cancel'])) {
+if(isset($_POST['cancel'])) { // Redirect to userlist when cancel button is clicked.
     header("location: usersList.php"); exit;
 }
 ?>

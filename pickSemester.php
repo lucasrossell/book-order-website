@@ -1,5 +1,7 @@
 <?php
 require_once "config.php";
+
+// Send the semeser picked once the submit button is clicked and redirect to adminReq.
 if(isset($_POST['submit'])) {
     $semester = ($_POST['semester']);
     $semester = urldecode(trim($semester));
@@ -43,11 +45,11 @@ if(isset($_POST['submit'])) {
                 <label for="semester">Semester:</label>
                 <select name="semester" id="semester" action="post">
                     <?php
-                        $qry = mysqli_query($link, "SELECT DISTINCT semester from BOOKS" );
+                        $qry = mysqli_query($link, "SELECT DISTINCT semester from BOOKS" ); // Querying to get all the semesters available in the table
                         while($data = mysqli_fetch_array($qry)){
                     ?>
-                    <option value="">--- Choose a Semester ---</option>
-                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option>
+                    <option value="">--- Choose a Semester ---</option> <!-- Drop down box -->
+                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option> <!-- Displaying all available semesters-->
                     <?php }?>
                 </select>
             </div>

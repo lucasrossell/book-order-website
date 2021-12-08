@@ -47,7 +47,7 @@ include_once "config.php"
                     <td>Edit</td>
                     <td>Delete</td>
                 </thead>
-        <?php  // PHP To populate the list of books not sure if this php would work
+        <?php  // PHP To populate the list of books, pulling from the books table in the database
             $sql= "SELECT order_id, title, author, edition, publisher, ISBN, book_qty, class, semester, username FROM books";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {

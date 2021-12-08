@@ -1,4 +1,5 @@
 <?php 
+// Gather Session details
 require_once "config.php";
 session_start();
 $username = $password = $type = "";

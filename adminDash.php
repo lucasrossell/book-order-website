@@ -1,13 +1,14 @@
 <?php
-session_start();
+// Gather session details
 include_once "config.php";
+session_start();
 $username = $_SESSION['username'];
 
-if(isset($_POST['change'])) {
+if(isset($_POST['change'])) { // Redirect to change password if button is clicked
     header("location: changePass.php"); exit;
 }
 
-if(isset($_POST['logout'])) {
+if(isset($_POST['logout'])) { // Redirect to logout if button is clicked. 
     header("location: logoutPage.php"); exit;
 }
 ?>

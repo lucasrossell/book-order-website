@@ -45,7 +45,7 @@ $semester = $_GET['value'];
                 <th>Class</th>
                 <th>Semester</th>
             </tr>
-        <?php  // PHP To populate the list of books not sure if this php would work
+        <?php  // PHP To populate the list of books, pulling from the books table in the database.
             $sql= "SELECT title, author, edition, publisher, ISBN, book_qty, class, semester FROM books where semester = '$semester'";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {

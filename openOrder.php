@@ -1,10 +1,11 @@
 <?php
+// Gather session details.
 session_start();
 include_once "config.php";
 $username = $_SESSION['username'];
 
 
-if(isset($_POST['deleteAll'])) {
+if(isset($_POST['deleteAll'])) { // delete all books ordered on current user, when button is clicked.
     $sql= "DELETE FROM books where username = '$username'";
     mysqli_query($link, $sql);
 }
@@ -45,7 +46,7 @@ if(isset($_POST['deleteAll'])) {
                     <td>Edit</td>
                     <td>Delete</td>
             </thead>
-        <?php  // PHP To populate the list of books not sure if this php would work
+        <?php  // PHP To populate the list of books in a table, pulling from database based on the username who requested it.
             $sql= "SELECT order_id, title, author, edition, publisher, ISBN, book_qty, class, semester FROM books where username = '$username'";
             $data = mysqli_query($link, $sql);
             while( $row = mysqli_fetch_array($data)) {
