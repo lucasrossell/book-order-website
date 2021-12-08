@@ -1,3 +1,4 @@
+<!-- Where admin can delete users -->
 <?php
 session_start();
 $currentuser = $_SESSION['username'];

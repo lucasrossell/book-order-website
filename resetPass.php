@@ -1,14 +1,20 @@
+<!-- Reset Password by being sent a temporary password to email -->
 <?php 
 require_once "config.php";
 
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
+    // Selected email from the username that is being sent the email.
     $sql = "select username, userEmail from users where username = '$username'";
     if ($result = mysqli_query($link, $sql)) {
         $row = mysqli_fetch_assoc($result);
-        $fetch_user_id=$row['username'];
-        $email=$row['userEmail'];
+        $fetch_user_id = $row['username'];
+        $email = $row['userEmail'];
+
+        // Temporary Password user can use to login and change password.
         $tempPass = substr(md5(uniqid(rand(),1)),3,10);
+
+        // Text for the Email.
         if($username==$fetch_user_id) {
             $to = $email;
             $subject = "Temporary Password - UCF Books";
@@ -18,6 +24,8 @@ if(isset($_POST['submit'])) {
             $txt .= "You can login here: loginPage.php";
             $headers = "From: tempPass@ucf.com";
             mail($to,$subject,$txt,$headers);
+
+            // Updating password in database/table
             $sql = "update users set password = '$tempPass' where username = '$username'";
             mysqli_query($link, $sql);
         } else {

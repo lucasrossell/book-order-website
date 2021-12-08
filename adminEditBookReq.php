@@ -1,3 +1,4 @@
+<!-- This is where admins can edit the book request that will be used for final request -->
 <?php
 require_once "config.php";
 

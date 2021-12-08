@@ -1,12 +1,16 @@
+<!-- Professor dashboard. This is where they can navigate from to view/edit orders or create new orders -->
 <?php 
 include_once "config.php";
-session_start(); // Gather session details
+// Gather session details
+session_start();
 
-if(isset($_POST['change'])) { // Redirect to change password if button is clicked
+// Redirect to change password if button is clicked
+if(isset($_POST['change'])) {
     header("location: profchangePass.php"); exit;
 }
 
-if(isset($_POST['logout'])) { // Redirect to logout if button is clicked.
+// Redirect to logout if button is clicked.
+if(isset($_POST['logout'])) {
     header("location: logoutPage.php"); exit;
 }
 ?>
@@ -28,8 +32,8 @@ if(isset($_POST['logout'])) { // Redirect to logout if button is clicked.
             <a href="profchangePass.php">Change Password</a>
             <a href="logoutPage.php">Log-Out</a>
         </div>
-
-    <div id="main" class="dash-content"> <!-- Reactive side-bar navigation-->
+<!-- Reactive side-bar navigation-->
+    <div id="main" class="dash-content">
         <span id="menu-icon" style="font-size:30px;cursor:pointer; position:absolute;" onclick="openNav()">&#9776;  Menu</span><br>
         <h1>Professor Dashboard</h1>
 		<h2>Welcome to your dashboard</h2>
@@ -43,6 +47,7 @@ if(isset($_POST['logout'])) { // Redirect to logout if button is clicked.
         <dt><a href="openOrder.php">View/Edit Open Order</a></dt>
 		<dd>Allows you to review and edit book requests forms that haven't been completed yet.</dd>
 		</dl>
+        <!-- buttons for changing password and logout in php -->
         <form method="POST">
             <input type="submit" name="change" value="Change Password">
             <input type="submit" name="logout" value="Logout">

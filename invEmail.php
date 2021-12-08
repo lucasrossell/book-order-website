@@ -1,9 +1,10 @@
-<!-- Broadcasting an email to invite a professor to request book information -->
+<!-- Sending an email to invite a professor to request book information -->
 <?php
 require_once "config.php";
 
 if(isset($_POST['submit'])) {
     $recipient = $_POST['username'];
+    // Selecting information of the user that the email is going to 
     $sql= "SELECT username, fullName, userEmail FROM users where username = '$recipient'";
     $body = $_POST['body'];
     $subject = $_POST['subject'];
@@ -22,6 +23,7 @@ if(isset($_POST['submit'])) {
     if ($recipient == $fetch_user_id) {
         $email=$row['userEmail'];
         $to = $email;
+        // Sending the email.
         mail($to,$subject,$body,$headers);
         echo "Mail sent."; exit;
     }

@@ -1,24 +1,28 @@
+<!-- Where Professor can change their password. Redirects back to professor dashboard -->
 <?php
 // Gather session details
 session_start();
 $currentuser = $_SESSION['username'];
 require_once "config.php";
 
-if(isset($_POST['cancel'])) { // Redirect to dashboard if cancel button is clicked.
+// Redirect to dashboard if cancel button is clicked.
+if(isset($_POST['cancel'])) {
     header("location: profDash.php"); exit;
 }
 
-if(isset($_POST['submit'])) { // if submit is clicked, do the password change for the professor.
+// if submit is clicked, do the password change for the professor.
+if(isset($_POST['submit'])) {
     $username = $_POST['username'];
     if ($username == $currentuser) {
         $sql = "select * from users where username = '$username'";
         $newPassword = $_POST["newPassword"];
         $confirmPassword = $_POST["confirmPassword"];
         if ($newPassword != $confirmPassword) {
-            echo "Passwords not the same";
+            echo "Passwords not the same.";
         }
         else {
-            $edit = mysqli_query($link, "update users set password = '$newPassword' where username='$username'"); // Set the newPassword for the username in database
+            // Set the newPassword for the username in database
+            $edit = mysqli_query($link, "update users set password = '$newPassword' where username='$username'");
             if($edit) {
                 mysqli_close($link);
             } else {

@@ -1,3 +1,4 @@
+<!-- This is where admins will select which semester they want to create the final list of book request for -->
 <?php
 require_once "config.php";
 
@@ -44,12 +45,17 @@ if(isset($_POST['submit'])) {
             <form action = '' method="POST">
                 <label for="semester">Semester:</label>
                 <select name="semester" id="semester" action="post">
+
                     <?php
-                        $qry = mysqli_query($link, "SELECT DISTINCT semester from BOOKS" ); // Querying to get all the semesters available in the table
+                        // Querying to get all the semesters available in the table
+                        $qry = mysqli_query($link, "SELECT DISTINCT semester from BOOKS" );
                         while($data = mysqli_fetch_array($qry)){
                     ?>
-                    <option value="">--- Choose a Semester ---</option> <!-- Drop down box -->
-                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option> <!-- Displaying all available semesters-->
+
+                     <!-- Drop down box -->
+                    <option value="">--- Choose a Semester ---</option>
+                    <!-- Displaying all available semesters-->
+                    <option value="<?php echo $data['semester']?>" selected><?php print $data['semester']; ?></option>
                     <?php }?>
                 </select>
             </div>

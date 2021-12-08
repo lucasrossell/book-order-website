@@ -2,6 +2,7 @@
 <?php
 require_once "config.php";
 
+// When submit is clicked, an email will be made and sent.
 if(isset($_POST['submit'])) {
     $sql= "SELECT username, fullName, userEmail FROM users where type = 'professor'";
     $body = $_POST['body'];

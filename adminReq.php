@@ -1,4 +1,4 @@
-<!-- Create a final list of book requests -->
+<!-- This is where admins can create a final list of book requests -->
 <?php 
 require_once "config.php";
 

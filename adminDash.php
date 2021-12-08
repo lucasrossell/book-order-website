@@ -1,3 +1,4 @@
+<!-- This is the Dashboard for the admin or also the main page for admins. They can do anything for users and viewing req from here -->
 <?php
 // Gather session details
 include_once "config.php";

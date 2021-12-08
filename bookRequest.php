@@ -1,3 +1,4 @@
+<!-- This is where professors can create book request for what books they need -->
 <?php
 // Gather session details
 session_start();

@@ -1,3 +1,4 @@
+<!-- This is where admins/current users can change password -->
 <?php
 // Gather session details
 session_start();

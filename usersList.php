@@ -1,6 +1,5 @@
 <!-- This is the where the superadmin or faculty can choose to create a new book order or they can choose to delete users -->
 <?php
-// Don't believe we need any php.
 include_once "config.php"
 ?>
 
@@ -41,8 +40,7 @@ include_once "config.php"
                         <td>Edit User</td>
                         <td>Delete User</td>
                     </thead>
-                    <?php  // PHP To populate the list of Users not sure if this php would work
-
+                    <?php  // PHP To populate the list of
                         $sql= "SELECT username, fullName, userEmail FROM users";
                         $data = mysqli_query($link, $sql);
                         while( $row = mysqli_fetch_array($data)) {

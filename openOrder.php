@@ -1,11 +1,12 @@
+<!-- Where the professor can see their book orders as well as delete all if they want to-->
 <?php
 // Gather session details.
 session_start();
 include_once "config.php";
 $username = $_SESSION['username'];
 
-
-if(isset($_POST['deleteAll'])) { // delete all books ordered on current user, when button is clicked.
+// delete all books ordered on current user, when button is clicked.
+if(isset($_POST['deleteAll'])) { 
     $sql= "DELETE FROM books where username = '$username'";
     mysqli_query($link, $sql);
 }
@@ -60,6 +61,7 @@ if(isset($_POST['deleteAll'])) { // delete all books ordered on current user, wh
                     <td><?php echo $row['book_qty']; ?></td>
                     <td><?php echo $row['class']; ?></td>
                     <td><?php echo $row['semester']; ?></td>
+                    <!-- edit and delete button for book req -->
                     <td><a href="editBookReq.php?order_id=<?php echo $row['order_id']; ?>">Edit</a></td>
                     <td><a href="deleteBookReq.php?order_id=<?php echo $row['order_id']; ?>">Delete</a></td>
                 </tr>

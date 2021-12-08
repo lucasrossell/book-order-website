@@ -1,3 +1,4 @@
+<!-- Logout page -->
 <?php
 // Gather session details
 session_start();

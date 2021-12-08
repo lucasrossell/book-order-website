@@ -1,3 +1,4 @@
+<!-- Where book requests can be edited and updated -->
 <?php
 require_once "config.php";
 
@@ -55,6 +56,7 @@ if(isset($_POST['cancel'])) {
             <input type="text" name="ISBN" value="<?php echo $data['ISBN'] ?>" placeholder="Enter ISBN" Required>
             <p>Enter Class:</p>
             <input type="text" name="class" value="<?php echo $data['class'] ?>" placeholder="Enter Class" Required>
+            <!-- Drop down for semester -->
             <p>Choose a semester</p>
                         <div>
                             <label for="semester"></label>

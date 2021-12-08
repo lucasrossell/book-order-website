@@ -1,3 +1,4 @@
+<!-- Where users can be edited or updated -->
 <?php
 require_once "config.php";
 
@@ -11,7 +12,8 @@ if(isset($_POST['update'])) {
     $fullName = $_POST['fullName'];
     $userEmail = $_POST['userEmail'];
 
-    $edit = mysqli_query($link, "update users set fullname='$fullName', userEmail='$userEmail' where username='$username'"); // Updating the information in database
+    // Updating the information in database
+    $edit = mysqli_query($link, "update users set fullname='$fullName', userEmail='$userEmail' where username='$username'");
 
     if($edit) {
         mysqli_close($link);

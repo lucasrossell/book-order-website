@@ -1,5 +1,5 @@
+<!-- Registering/Creating an account -->
 <?php
- //This section is currently broken; working on making this correctly interact with the mysql server.
 
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = $userEmail = $fullName = "";
@@ -7,13 +7,13 @@ $username_err = $password_err = $confirm_password_err = $email_err = $fullName_e
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    // Include config file
     require_once 'config.php';
 
     // Define variables and initialize with empty values
     $username = $password = $confirm_password = $userEmail = $fullName = "";
     $username_err = $password_err = $confirm_password_err = $email_err = $fullName_err = "";
     $type = "Professor";
+
     // Validate username
     if(empty(trim($_POST["username"]))){
         $username_err = "Please enter a username.";
@@ -32,9 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
-                /* store result */
                 mysqli_stmt_store_result($stmt);
-
                 if(mysqli_stmt_num_rows($stmt) == 1){
                     $username_err = "This username is already taken.";
                 } else{
@@ -91,8 +89,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($fullName_err) && empty($email_err)){
-
-        // Prepare an insert statement
         $sql = "INSERT INTO users (username, password, fullName, userEmail, type) VALUES (?, ?, ?, ?, ?)";
 
         if($stmt = mysqli_prepare($link, $sql)){
@@ -105,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $param_fullName = $fullName;
             $param_email = $userEmail;
             $param_type = $type;
-            // Attempt to execute the prepared statement
+
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
                 header("location: loginPage.php"); exit;
@@ -122,6 +118,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Close connection
     mysqli_close($link);
 
+    // Redirect when submitted.
     if(isset($_POST['submit'])) {
         header("location: loginPage.php"); exit;
     }

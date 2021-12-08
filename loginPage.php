@@ -1,3 +1,4 @@
+<!-- Log in page for staff and professors -->
 <?php 
 // Gather Session details
 require_once "config.php";
