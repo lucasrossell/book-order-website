@@ -1,6 +1,3 @@
-"# book-order-website" 
-- Here it is, our beautiful website :)
-
 "# To get MySQL started"
 - Windows: mysql -u root -p
 - macOS: /usr/local/mysql/bin/mysql -u root -p
